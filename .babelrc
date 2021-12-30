@@ -1,0 +1,34 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "targets": {
+            "browsers": ["last 2 versions", "safari >= 7"]
+          }
+        },
+        "preset-react": {}
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "cwd": "babelrc",
+        "root": ["./src"],
+        "alias": {
+          "data": "./src/data",
+          "components": "./src/components",
+          "pages": "./src/pages",
+          "constants": "./src/constants",
+          "utils": "./src/utils",
+          "public": "./public"
+        },
+        "extensions": [".js", ".jsx", ".es", ".es6", ".mjs"]
+      }
+    ]
+  ],
+  "retainLines": true
+}

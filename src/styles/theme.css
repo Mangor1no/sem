@@ -1,0 +1,4 @@
+@import 'pages/shop';
+@import 'pages/home';
+@import 'pages/product';
+@import 'components/toastify';

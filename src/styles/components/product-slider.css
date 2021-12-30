@@ -1,0 +1,28 @@
+.carousel-root {
+  width: 100%;
+}
+.thumbs-wrapper .axis-vertical {
+  margin: 10px 0 0 0;
+}
+.carousel .control-arrow:before,
+.carousel.carousel-slider .control-arrow:before {
+  border-top: 8px solid #ffffff !important;
+  border-bottom: 8px solid #ffffff !important;
+}
+.carousel .control-prev.control-arrow:before {
+  border-right: 8px solid #a24936 !important;
+}
+.carousel .control-next.control-arrow:before {
+  border-left: 8px solid #a24936 !important;
+}
+.thumbs-wrapper > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.carousel .thumb,
+.carousel .thumb.selected,
+.carousel .thumb:hover {
+  border: transparent !important;
+}
