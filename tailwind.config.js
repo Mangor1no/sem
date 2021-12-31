@@ -6,7 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         poppins: ['"Poppins"'],
-        oswald: ['"Oswald"'],
+        nunito: ['"Nunito"'],
       },
       screens: {
         '3xl': '1920px',
@@ -18,6 +18,21 @@ module.exports = {
         active: '#5E1100',
         textPrimary: '#2B2B35',
         bgPrimary: '#2B2B35',
+        black: {
+          100: '#262626',
+          50: '#666666',
+          30: '#9D9D9D',
+          10: '#C9C9C9',
+          2: '#F5F5F5',
+        },
+        blue: {
+          100: '#45A7DE',
+          50: '#83C9F0',
+        },
+        yellow: {
+          100: '#FFD868',
+          50: '#FFE28E',
+        },
       },
       fontSize: {
         xs: ['.75rem', { letterSpacing: '.03em', lineHeight: '1.125rem' }], // Caption 12px
