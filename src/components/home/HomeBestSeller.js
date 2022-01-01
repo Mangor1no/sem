@@ -13,7 +13,7 @@ const HomeBestSeller = () => {
         <IconPriceRange />
         <div className="w-[90px] h-[2px] bg-primary ml-1" />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full gap-5">
         {products?.slice(0, 8)?.map((product) => (
           <Transition
             as="div"

@@ -42,8 +42,8 @@ const Product = ({ product }) => {
   };
 
   return (
-    <div className="w-full h-full group hover:shadow-lg transform transition-shadow">
-      <div className="w-full md:px-[45px] md:py-[50px] bg-[#F2F2F2] flex items-center justify-center relative overflow-hidden">
+    <div className="w-full h-full group">
+      <div className="w-full flex items-center justify-center relative overflow-hidden">
         {isAuth && (
           <div className="absolute top-4 right-4 z-20">
             {addable ? (
@@ -64,7 +64,7 @@ const Product = ({ product }) => {
         <img
           src={product?.image?.[0]}
           alt={product?.name}
-          className="md:w-full h-full object-cover z-10 transition duration-500 ease-in-out group-hover:scale-110"
+          className="w-full h-full object-cover z-10 transition duration-500 ease-in-out group-hover:scale-110"
         />
       </div>
       <Link
@@ -73,7 +73,7 @@ const Product = ({ product }) => {
           query: { category: product?.category },
         }}
       >
-        <div className="mt-7 m-6 flex flex-col items-center cursor-pointer">
+        <div className="mt-7 mx-2 flex flex-col items-center cursor-pointer">
           <p className="mb-1 text-base capitalize line-clamp-1 text-black-50">{product?.name}</p>
           <div className="flex items-center justify-between space-x-2">
             {product?.oldPrice ? (

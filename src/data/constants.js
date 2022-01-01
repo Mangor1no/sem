@@ -121,815 +121,459 @@ export const categories = [
 export const coffeeMachines = [
   {
     id: 0,
-    name: 'Break Capsule Coffee',
-    category: 'coffee-machine',
-    subCategory: 'espresso-machine',
+    name: 'Aldult Salmon Rice',
+    category: 'Food',
     image: [
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
+      '/images/products/0.jpg',
+      '/images/products/0-1.jpg',
+      '/images/products/0-2.jpg',
+      '/images/products/0-3.jpg',
     ],
-    rating: 4,
-    price: 41.5,
-    oldPrice: 53.25,
-    variations: ['#111827', '#4B5563'],
-    background: ['#14131345', '#E58F6580'], // #111827 machine
+    rating: 4.5,
+    price: 20.19,
     brand: 'Bialetti',
     description:
-      'BREAK the super compact Bialetti! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 42,
-    metadata: {
-      size: {
-        dimensions: '129x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.0m',
-        capsule_capacity: '8/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '20 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Bialetti capsules.',
-      },
-    },
+    // metadata: {
+    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //        },
+    //       },
   },
+
   {
     id: 1,
-    name: 'Gioia Capsule Coffee',
-    category: 'coffee-machine',
-    subCategory: 'coffee-maker',
+    name: 'Royal Canin Kitten',
+    category: 'Food',
     image: [
-      '/images/products/product-1.png',
-      '/images/products/product-1.png',
-      '/images/products/product-1.png',
-      '/images/products/product-1.png',
-      '/images/products/product-1.png',
+      '/images/products/1.jpg',
+      '/images/products/1-1.jpg',
+      '/images/products/1-2.jpg',
+      '/images/products/1-3.jpg',
     ],
     rating: 5,
-    price: 79.99,
-    variations: ['#1E40AF'],
-    background: ['#C9F0FF', '#EAFFFD'], // #1E40AF machine
-    brand: 'Vinfast',
-    description:
-      'BREAK the super compact Vinfast! Small, modern design with chrome finishes and soft lines. It is less than 31 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '250x430x260mm',
-        maximum_height: '430mm',
-        cable_length: '2.0m',
-        capsule_capacity: '9/9 capsules',
-        tank_capacity: '2.50L',
-        pump_pressure: '50 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Automatic',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 07 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Vinfast capsules.',
-      },
-    },
-  },
-  {
-    id: 2,
-    name: 'Super Capsule Coffee',
-    category: 'coffee-machine',
-    subCategory: 'espresso-machine',
-    image: [
-      '/images/products/product-2.png',
-      '/images/products/product-2.png',
-      '/images/products/product-2.png',
-      '/images/products/product-2.png',
-      '/images/products/product-2.png',
-    ],
-    rating: 3,
-    price: 51.5,
-    oldPrice: 58.5,
-    variations: ['#B91C1C', '#111827'],
-    background: ['#B91C1C85', '#F59E0B50'], // #B91C1C machine
-    brand: 'Masan',
-    description:
-      'BREAK the super compact Masan! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '129x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.0m',
-        capsule_capacity: '8/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '20 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Masan capsules.',
-      },
-    },
-  },
-  {
-    id: 3,
-    name: 'Filter Coffee Machine',
-    category: 'coffee-machine',
-    subCategory: 'coffee-grinder',
-    image: [
-      '/images/products/product-3.png',
-      '/images/products/product-3.png',
-      '/images/products/product-3.png',
-      '/images/products/product-3.png',
-      '/images/products/product-3.png',
-    ],
-    rating: 5,
-    price: 63.5,
-    variations: ['#111827', '#4B5563'],
-    background: ['#14131345', '#E58F6580'], // #111827 machine
+    price: 80.0,
     brand: 'Bialetti',
     description:
-      'BREAK the super compact Bialetti! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '129x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.0m',
-        capsule_capacity: '8/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '20 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Bialetti capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 35,
+    // metadata: {
+    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //        },
+    //       },
   },
+
+  {
+    id: 2,
+    name: 'Royal Canin Hairball Care',
+    category: 'Food',
+    image: [
+      '/images/products/2.jpg',
+      '/images/products/2-1.jpg',
+      '/images/products/2-2.jpg',
+      '/images/products/2-3.jpg',
+    ],
+    rating: 5,
+    price: 56.0,
+    brand: 'Bialetti',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //        },
+    //       },
+  },
+
+  {
+    id: 3,
+    name: 'ABC-Dog Toys',
+    category: 'Toy',
+    image: ['/images/products/3.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //        },
+    //       },
+  },
+
   {
     id: 4,
-    name: 'Break Capsule Coffee 2',
-    category: 'coffee-machine',
-    subCategory: 'espresso-machine',
-    image: [
-      '/images/products/product-4.png',
-      '/images/products/product-4.png',
-      '/images/products/product-4.png',
-      '/images/products/product-4.png',
-      '/images/products/product-4.png',
-    ],
-    rating: 4,
-    price: 50.25,
-    oldPrice: 58.5,
-    variations: ['#111827', '#4B5563'],
-    background: ['#14131345', '#E58F6580'], // #111827 machine
-    brand: 'KOI',
+    name: ' ABC-square mattress size 2',
+    category: 'Accessories',
+    image: ['/images/products/4.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
     description:
-      'BREAK the super compact KOI! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '140x290x260mm',
-        maximum_height: '330mm',
-        cable_length: '1.5m',
-        capsule_capacity: '9/9 capsules',
-        tank_capacity: '0.60L',
-        pump_pressure: '30 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with KOI capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //        },
+    //       },
   },
+
   {
     id: 5,
-    name: 'Russel Hobb Filter',
-    category: 'coffee-machine',
-    subCategory: 'coffee-grinder',
-    image: [
-      '/images/products/product-5.png',
-      '/images/products/product-5.png',
-      '/images/products/product-5.png',
-      '/images/products/product-5.png',
-      '/images/products/product-5.png',
-    ],
-    rating: 4,
-    price: 44.5,
-    variations: ['#111827', '#4B5563'],
-    background: ['#14131345', '#E58F6580'], // #111827 machine
-    brand: 'Russel',
+    name: 'Baby Powder',
+    category: 'Accessories',
+    image: ['/images/products/5.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
     description:
-      'BREAK the super compact Russel! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 0,
-    metadata: {
-      size: {
-        dimensions: '129x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.0m',
-        capsule_capacity: '8/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '20 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Russel capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //        },
+    //       },
   },
+
   {
     id: 6,
-    name: 'Russel Hobb Maker',
-    category: 'coffee-machine',
-    subCategory: 'coffee-maker',
-    image: [
-      '/images/products/product-8.png',
-      '/images/products/product-8.png',
-      '/images/products/product-8.png',
-      '/images/products/product-8.png',
-      '/images/products/product-8.png',
-    ],
-    rating: 4,
-    price: 55.5,
-    oldPrice: 73.25,
-    variations: ['#4B5563'],
-    background: ['#14131345', '#E58F6580'], // #111827 machine
-    brand: 'Russel Hobb',
+    name: 'Meowing Heads-Dry Cat ',
+    category: 'Accessories',
+    image: ['/images/products/6.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
     description:
-      'BREAK the super compact Russel Hobb! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '129x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.0m',
-        capsule_capacity: '8/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '20 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Russel Hobb capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //        },
+    //       },
   },
+
   {
     id: 7,
-    name: 'Delonghi Coffee Machine',
-    category: 'coffee-machine',
-    subCategory: 'espresso-machine',
-    image: [
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
-    ],
+    name: 'Hagen-Kitty Rubber Brush',
+    category: 'Accessories',
+    image: ['/images/products/7.jpg'],
     rating: 5,
-    price: 69.5,
-    oldPrice: 86.25,
-    variations: ['#111827'],
-    background: ['#14131345', '#E58F6580'], // #111827 machine
-    brand: 'Delonghi',
+    price: 33.0,
+    brand: 'Bialetti',
     description:
-      'BREAK the super compact Delonghi! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '129x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.0m',
-        capsule_capacity: '8/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '20 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Delonghi capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //        },
+    //       },
   },
+
   {
     id: 8,
-    name: 'Beko Coffee Machine',
-    category: 'coffee-machine',
-    subCategory: 'espresso-machine',
-    image: [
-      '/images/products/product-8.png',
-      '/images/products/product-8.png',
-      '/images/products/product-8.png',
-      '/images/products/product-8.png',
-      '/images/products/product-8.png',
-    ],
-    rating: 4,
-    price: 41.5,
-    oldPrice: 53.25,
-    variations: ['#FAFAFA'],
-    background: ['#797D8145', '#FA792135'], // #FAFAFA machine
-    brand: 'Beko',
+    name: 'Omega 3 Healty Care',
+    category: 'Medicine',
+    image: ['/images/products/8.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
     description:
-      'BREAK the super compact Beko! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '129x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.0m',
-        capsule_capacity: '8/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '20 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Beko capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //        },
+    //       },
   },
+
   {
     id: 9,
-    name: 'Akko Special',
-    category: 'coffee-machine',
-    subCategory: 'espresso-machine',
-    image: [
-      '/images/products/product-9.png',
-      '/images/products/product-9.png',
-      '/images/products/product-9.png',
-      '/images/products/product-9.png',
-      '/images/products/product-9.png',
-    ],
+    name: 'ABC-Nail Scratcher',
+    category: 'Accessories',
+    image: ['/images/products/9.jpg'],
     rating: 5,
-    price: 539.99,
-    variations: ['#111827'],
-    background: ['#14131345', '#E58F6580'], // #111827 machine
-    brand: 'Akko',
+    price: 33.0,
+    brand: 'Bialetti',
     description:
-      'BREAK the super compact Akko! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 0,
-    metadata: {
-      size: {
-        dimensions: '129x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.0m',
-        capsule_capacity: '8/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '20 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Akko capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //        },
+    //       },
   },
+
+  {
+    id: 9,
+    name: 'ABC-Nail Scratcher',
+    category: 'Accessories',
+    image: ['/images/products/9.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
+  },
+
   {
     id: 10,
-    name: 'Bona Fide Coffee',
-    category: 'coffee-machine',
-    subCategory: 'espresso-machine',
-    image: [
-      '/images/products/product-18.png',
-      '/images/products/product-18.png',
-      '/images/products/product-18.png',
-      '/images/products/product-18.png',
-      '/images/products/product-18.png',
-    ],
-    rating: 4,
-    price: 31.5,
-    oldPrice: 42.25,
-    variations: ['#111827', '#B91C1C'],
-    background: ['#14131345', '#E58F6580'], // #111827 machine
-    brand: 'Crown',
+    name: "Napoleon's Nibbles",
+    category: 'Food',
+    image: ['/images/products/10.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
     description:
-      'BREAK the super compact Crown! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '129x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.0m',
-        capsule_capacity: '8/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '20 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 18 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Crown capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
   },
+
+  {
+    id: 11,
+    name: 'S0S-Special For Cat',
+    category: 'Medicine',
+    image: ['/images/products/11.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
+  },
+
   {
     id: 12,
-    name: 'Old Spice Capsule',
-    category: 'coffee-machine',
-    subCategory: 'coffee-roaster',
-    image: [
-      '/images/products/product-2.png',
-      '/images/products/product-2.png',
-      '/images/products/product-2.png',
-      '/images/products/product-2.png',
-      '/images/products/product-2.png',
-    ],
-    rating: 4,
-    price: 57.5,
-    variations: ['#111827', '#4B5563'],
-    background: ['#797D8145', '#FA792135'], // #FAFAFA machine
-    brand: 'Old Spice',
+    name: 'Endeavor Daytripa',
+    category: 'Clothes',
+    image: ['/images/products/12.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
     description:
-      'BREAK the super compact Old Spice! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '129x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.0m',
-        capsule_capacity: '8/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '20 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Old Spice capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
   },
+
   {
     id: 13,
-    name: 'Okamura WASD',
-    category: 'coffee-machine',
-    subCategory: 'espresso-machine',
-    image: [
-      '/images/products/product-1.png',
-      '/images/products/product-1.png',
-      '/images/products/product-1.png',
-      '/images/products/product-1.png',
-      '/images/products/product-1.png',
-    ],
-    rating: 4,
-    price: 54.5,
-    oldPrice: 68.25,
-    variations: ['#111827', '#4B5563'],
-    background: ['#797D8145', '#FA792135'], // #FAFAFA machine
-    brand: 'WASD',
+    name: 'Endeavor Royal Canin',
+    category: 'Food',
+    image: ['/images/products/13.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
     description:
-      'BREAK the super compact WASD! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '129x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.0m',
-        capsule_capacity: '8/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '20 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with WASD capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
   },
+
   {
     id: 14,
-    name: 'Fika Rough Rider',
-    category: 'coffee-machine',
-    subCategory: 'fully-automatic',
-    image: [
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
-    ],
-    rating: 4,
-    price: 57.5,
-    oldPrice: 78.25,
-    variations: ['#B91C1C'],
-    background: ['#797D8145', '#FA792135'], // #FAFAFA machine
-    brand: 'Fika',
+    name: 'Endeavor Daytripa',
+    category: 'Food',
+    image: ['/images/products/14.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
     description:
-      'BREAK the super compact Fika! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '129x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.0m',
-        capsule_capacity: '8/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '20 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Fika capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
   },
+
+  {
+    id: 15,
+    name: 'Grain Free Adult',
+    category: 'Food',
+    image: ['/images/products/15.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
+  },
+
   {
     id: 16,
-    name: 'HOCO DAB',
-    category: 'coffee-machine',
-    subCategory: 'fully-automatic',
-    image: [
-      '/images/products/product-4.png',
-      '/images/products/product-4.png',
-      '/images/products/product-4.png',
-      '/images/products/product-4.png',
-      '/images/products/product-4.png',
-    ],
+    name: 'Endeavor Daytripa',
+    category: 'Food',
+    image: ['/images/products/16.jpg'],
     rating: 5,
-    price: 489.99,
-    oldPrice: 538.79,
-    variations: ['#111827'],
-    background: ['#14131345', '#E58F6580'], // #111827 machine
-    brand: 'HOCO',
+    price: 33.0,
+    brand: 'Bialetti',
     description:
-      'BREAK the super compact HOCO DAB! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '129x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.0m',
-        capsule_capacity: '8/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '20 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 10 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with HOCO capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
   },
+
   {
     id: 17,
-    name: 'Colorize Coffee PX-4',
-    category: 'coffee-machine',
-    subCategory: 'fully-automatic',
-    image: [
-      '/images/products/product-5.png',
-      '/images/products/product-5.png',
-      '/images/products/product-5.png',
-      '/images/products/product-5.png',
-      '/images/products/product-5.png',
-    ],
+    name: 'Arden Grange For Dog',
+    category: 'Food',
+    image: ['/images/products/17.jpg'],
     rating: 5,
-    price: 489.99,
-    oldPrice: 538.79,
-    variations: ['#111827'],
-    background: ['#14131345', '#E58F6580'], // #111827 machine
-    brand: 'Colorize',
+    price: 33.0,
+    brand: 'Bialetti',
     description:
-      'BREAK the super compact Colorize Coffee! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '149x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.2m',
-        capsule_capacity: '9/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '25 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 06 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Colorize capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
   },
+
   {
     id: 18,
-    name: 'Colorize Coffee PX-3',
-    category: 'coffee-machine',
-    subCategory: 'fully-automatic',
-    image: [
-      '/images/products/product-18.png',
-      '/images/products/product-18.png',
-      '/images/products/product-18.png',
-      '/images/products/product-18.png',
-      '/images/products/product-18.png',
-    ],
+    name: 'Arden Grange Sensitive',
+    category: 'Food',
+    image: ['/images/products/18.jpg'],
     rating: 5,
-    price: 489.99,
-    oldPrice: 538.79,
-    variations: ['#111827'],
-    background: ['#B91C1C95', '#F59E0B80'], // #B91C1C machine
-    brand: 'Colorize',
+    price: 33.0,
+    brand: 'Bialetti',
     description:
-      'BREAK the super compact Colorize Coffee! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '149x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.2m',
-        capsule_capacity: '9/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '25 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 06 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Colorize capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
   },
+
   {
     id: 19,
-    name: 'Colorize Coffee PX-5',
-    category: 'coffee-machine',
-    subCategory: 'fully-automatic',
-    image: [
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
-      '/images/products/product-0.png',
-    ],
+    name: 'Endeavor Daytripa Hairball',
+    category: 'Food',
+    image: ['/images/products/19.jpg'],
     rating: 5,
-    price: 489.99,
-    oldPrice: 538.79,
-    variations: ['#111827'],
-    background: ['#797D8145', '#FA792135'], // #FAFAFA machine
-    brand: 'Colorize',
+    price: 33.0,
+    brand: 'Bialetti',
     description:
-      'BREAK the super compact Colorize Coffee! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '149x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.2m',
-        capsule_capacity: '9/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '25 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 06 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Colorize capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
   },
+
+  {
+    id: 19,
+    name: 'Endeavor Daytripa Hairball',
+    category: 'Food',
+    image: ['/images/products/19.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
+  },
+
   {
     id: 20,
-    name: 'Gillette Okamura',
-    category: 'coffee-machine',
-    subCategory: 'fully-automatic',
-    image: [
-      '/images/products/product-2.png',
-      '/images/products/product-2.png',
-      '/images/products/product-2.png',
-      '/images/products/product-2.png',
-      '/images/products/product-2.png',
-    ],
+    name: 'Vita Vet C',
+    category: 'Medicine',
+    image: ['/images/products/20.jpg'],
     rating: 5,
-    price: 489.99,
-    oldPrice: 538.79,
-    variations: ['#111827'],
-    background: ['#797D8145', '#FA792135'], // #FAFAFA machine
-    brand: 'Okamura',
+    price: 33.0,
+    brand: 'Bialetti',
     description:
-      'BREAK the super compact Gillette Okamura! Small, modern design with chrome finishes and soft lines. It is less than 30 cm deep, to fit perfectly in any kitchen.',
-    stock: 42,
-    metadata: {
-      size: {
-        dimensions: '149x295x233mm',
-        maximum_height: '355mm',
-        cable_length: '1.2m',
-        capsule_capacity: '9/9 capsules',
-        tank_capacity: '0.40L',
-        pump_pressure: '25 Bar',
-      },
-      power: {
-        voltage: '220 - 240V 50 - 60Hz',
-        power: '1200W',
-        dispensing_dose: 'Manual',
-        capsule_ejection: 'Automatic',
-        steam_wand: 'About 06 mins',
-      },
-      special: {
-        boiler_system: 'Thermoblock system. For an always hot espresso.',
-        operation_system: 'Monosystem. It works exclusively with Okamura capsules.',
-      },
-    },
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
+  },
+
+  {
+    id: 21,
+    name: 'Chocolate Bombom Sortidos ',
+    category: 'Food',
+    image: ['/images/products/21.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
+  },
+
+  {
+    id: 22,
+    name: 'Endeavor Daytripa Bag',
+    category: 'Accessories',
+    image: ['/images/products/22.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
+  },
+
+  {
+    id: 23,
+    name: 'Endeavor Daytripa Pro',
+    category: 'Accessories',
+    image: ['/images/products/23.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    // metadata: {
+    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    //          },
+    //         },
   },
 ];
 

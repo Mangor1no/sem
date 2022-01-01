@@ -78,3 +78,7 @@ a {
 ::-webkit-scrollbar-thumb {
   background: #2e2d39;
 }
+
+.btn-primary {
+  @apply bg-yellow-100 text-blue-100 hover:bg-yellow-50 active:bg-blue-100 active:text-yellow-100 disabled:bg-disabled disabled:text-white disabled:cursor-not-allowed uppercase font-bold;
+}

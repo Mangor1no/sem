@@ -15,9 +15,11 @@ const categoryText = ['COFFEE MACHINE', 'barista tools', 'COFFEE BEANS'];
 
 const HomeCategory = () => {
   return (
-    <div className="flex flex-col items-center">
-      <p className="text-lg text-primary">What We Have Here</p>
-      <p className="text-xl mt-2 font-semibold mb-4">CATEGORY OF KOHI</p>
+    <div className="flex flex-col items-center ">
+      <p className="text-[16px] leading-[25px] tracking-[.3em] text-blue-100 uppercase">
+        TRENDING CATEGORIES
+      </p>
+      <p className="text-2xl mt-2 font-bold mb-4">Shop By Category</p>
       <div className="flex items-center justify-between mb-5">
         <div className="w-[90px] h-[2px] bg-primary mr-1" />
         <IconPriceRange />

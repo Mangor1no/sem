@@ -49,17 +49,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    if (
-      router?.route === '/' ||
-      (router?.route.includes('/shop') && !router?.route.includes('/shop/product')) ||
-      router?.route === '/cart' ||
-      router?.route === '/blog' ||
-      router?.route.includes('/service')
-    ) {
-      window.addEventListener('scroll', handleScroll);
-    } else {
-      setClassName('#212227');
-    }
+    setClassName('#45A7DE');
   }, [router?.route]);
 
   const handleSignOut = async () => {
