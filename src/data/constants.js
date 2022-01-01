@@ -2,123 +2,42 @@
 export const categories = [
   {
     id: 0,
-    category: 'coffee-machine',
-    name: 'Coffee machine',
-    subCategory: [
-      {
-        id: 0,
-        slug: 'all-machines',
-        name: 'All Machines',
-      },
-      {
-        id: 1,
-        slug: 'coffee-grinder',
-        name: 'Coffee Grinder',
-      },
-      {
-        id: 2,
-        slug: 'coffee-maker',
-        name: 'Coffee Maker',
-      },
-      {
-        id: 3,
-        slug: 'coffee-roaster',
-        name: 'Coffee Roaster',
-      },
-      {
-        id: 4,
-        slug: 'espresso-machine',
-        name: 'Espresso Machine',
-      },
-      {
-        id: 5,
-        slug: 'fully-automatic',
-        name: 'Fully Automatic',
-      },
-    ],
+    category: 'Food',
+    name: 'Food',
+    image: '/images/home/home-category-1.png',
   },
   {
     id: 1,
-    category: 'barista-tools',
-    name: 'BARISTA TOOLS',
-    subCategory: [
-      {
-        id: 0,
-        slug: 'all-tools',
-        name: 'All Tools',
-      },
-      {
-        id: 1,
-        slug: 'tampers-and-mats',
-        name: 'Tampers & Mats',
-      },
-      {
-        id: 2,
-        slug: 'pitchers',
-        name: 'Pitchers',
-      },
-      {
-        id: 3,
-        slug: 'thermormeters',
-        name: 'Thermormeters',
-      },
-      {
-        id: 4,
-        slug: 'cups-and-mugs',
-        name: 'Cups & Mugs',
-      },
-      {
-        id: 5,
-        slug: 'scales',
-        name: 'Scales',
-      },
-      {
-        id: 6,
-        slug: 'servers',
-        name: 'Servers',
-      },
-    ],
+    category: 'Accessories',
+    name: 'Accessories',
+    image: '/images/home/home-category-2.png',
   },
   {
     id: 2,
-    category: 'coffee-beans',
-    name: 'Coffee beans',
-    subCategory: [
-      {
-        id: 0,
-        slug: 'all-beans-types',
-        name: 'All Beans Types',
-      },
-      {
-        id: 1,
-        slug: 'capsules',
-        name: 'Capsules',
-      },
-      {
-        id: 2,
-        slug: 'ground',
-        name: 'Ground',
-      },
-      {
-        id: 3,
-        slug: 'roasted',
-        name: 'Roasted',
-      },
-      {
-        id: 4,
-        slug: 'speciality',
-        name: 'Speciality',
-      },
-      {
-        id: 5,
-        slug: 'whole-beans',
-        name: 'Whole Beans',
-      },
-    ],
+    category: 'Clothes',
+    name: 'Clothes',
+    image: '/images/home/home-category-3.png',
+  },
+  {
+    id: 3,
+    category: 'Medicine',
+    name: 'Medicine',
+    image: '/images/home/home-category-4.png',
+  },
+  {
+    id: 4,
+    category: 'Comestic',
+    name: 'Comestic',
+    image: '/images/home/home-category-5.png',
+  },
+  {
+    id: 5,
+    category: 'Toy',
+    name: 'Toy',
   },
 ];
 
-export const coffeeMachines = [
+export const food = [
   {
     id: 0,
     name: 'Aldult Salmon Rice',

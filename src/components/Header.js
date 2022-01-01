@@ -10,10 +10,10 @@ import { useRouter } from 'next/router';
 import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useWindowSize } from 'utils/customHooks';
-import { coffeeMachines, coffeeBeans, baristaTools } from 'data/constants';
+import { food, coffeeBeans, baristaTools } from 'data/constants';
 import BurgerButton from './header/burger';
 
-const data = [...coffeeMachines, ...coffeeBeans, ...baristaTools];
+const data = [...food, ...coffeeBeans, ...baristaTools];
 
 const Header = () => {
   const [className, setClassName] = useState('');

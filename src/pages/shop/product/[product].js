@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { categories, coffeeMachines, baristaTools, coffeeBeans } from 'data/constants';
+import { categories, food, baristaTools, coffeeBeans } from 'data/constants';
 import Layout from 'components/Layout';
 import { ImageSlider } from 'components/product-detail/ImageSlider';
 import ProductInfo from 'components/product-detail/ProductInfo';
@@ -19,7 +19,7 @@ const ProductDetail = () => {
   const setData = async (category) => {
     let data;
     if (category === categories?.[0]?.category) {
-      data = coffeeMachines;
+      data = food;
     }
     if (category === categories?.[1]?.category) {
       data = baristaTools;

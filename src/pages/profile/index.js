@@ -26,7 +26,7 @@ import { Slide, toast, ToastContainer } from 'react-toastify';
 import { validateEmail } from 'utils/helpers';
 import NumberFormat from 'react-number-format';
 import { useRouter } from 'next/router';
-import { coffeeMachines } from 'data/constants';
+import { food } from 'data/constants';
 import { Transition } from '@headlessui/react';
 import Product from 'components/shop/Product';
 import { wishlistSelector } from 'data/selectors/wishlistSelector';

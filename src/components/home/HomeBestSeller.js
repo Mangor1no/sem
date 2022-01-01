@@ -1,5 +1,5 @@
 import React from 'react';
-import { coffeeMachines as products } from 'data/constants';
+import { food as products } from 'data/constants';
 import { Transition } from '@headlessui/react';
 import Product from 'components/shop/Product';
 import { IconPriceRange } from 'constants/Icons';

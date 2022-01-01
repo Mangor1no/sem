@@ -4,7 +4,7 @@ import Category from 'components/shop/Category';
 import Filter from 'components/shop/Filter';
 import Product from 'components/shop/Product';
 import { IconDropdown, IconPaginateNext, IconPaginatePrev, IconPriceRange } from 'constants/Icons';
-import { categories, coffeeMachines, baristaTools, coffeeBeans } from 'data/constants';
+import { categories, food, baristaTools, coffeeBeans } from 'data/constants';
 import { useRouter } from 'next/router';
 import banner from 'public/images/allmachines.jpg';
 import React, { Fragment, useCallback, useEffect, useState } from 'react';
@@ -72,7 +72,7 @@ const Shop = () => {
   useEffect(() => {
     let data;
     if (currentCategory === categories?.[0]?.category) {
-      data = coffeeMachines;
+      data = food;
     }
     if (currentCategory === categories?.[1]?.category) {
       data = baristaTools;

@@ -22,27 +22,27 @@
   font-display: auto;
   src: url(../../public/fonts/Nunito-Bold.ttf) format('woff');
 }
-/*
+
 @font-face {
-  font-family: Poppins;
+  font-family: HelveticaNeue;
   font-weight: 400;
   font-display: auto;
-  src: url(../../public/fonts/Poppins-Regular.ttf) format('woff');
+  src: url(../../public/fonts/helveticaneue.ttf) format('woff');
 }
 
 @font-face {
-  font-family: Poppins-SemiBold;
+  font-family: HelveticaNeue-SemiBold;
   font-weight: 400;
   font-display: auto;
-  src: url(../../public/fonts/Poppins-SemiBold.ttf) format('woff');
+  src: url(../../public/fonts/helveticaneuemedium.ttf) format('woff');
 }
 
 @font-face {
-  font-family: Poppins-Bold;
+  font-family: HelveticaNeue-Bold;
   font-weight: 400;
   font-display: auto;
-  src: url(../../public/fonts/Poppins-Bold.ttf) format('woff');
-} */
+  src: url(../../public/fonts/helveticaneuebold.ttf) format('woff');
+}
 
 @import 'theme.css';
 

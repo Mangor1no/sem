@@ -6,7 +6,7 @@ import { cartItemSelector } from 'data/selectors/cartSelector';
 import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import banner from 'public/images/cart/cart-banner.png';
-import { categories, coffeeMachines, baristaTools, coffeeBeans } from 'data/constants';
+import { categories, food, baristaTools, coffeeBeans } from 'data/constants';
 import { IconCart, IconCheckboxCheck, IconClose, IconPaginatePrev } from 'constants/Icons';
 import { clearUserCart, removeFromCart } from 'data/actions/cart';
 import Link from 'next/link';
@@ -140,7 +140,7 @@ const Cart = () => {
     let productPrice = null;
     switch (type) {
       case categories[0].category: {
-        data = coffeeMachines;
+        data = food;
         break;
       }
       case categories[1].category: {

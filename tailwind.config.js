@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ['"Poppins"'],
+        neue: ['"HelveticaNeue"'],
         nunito: ['"Nunito"'],
       },
       screens: {
