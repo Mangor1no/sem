@@ -47,10 +47,11 @@ const userReducer = (state = initialState, { type, payload }) => {
         isFetching: false,
       };
     case TYPES.SIGN_IN_SUCCESS: {
+      const currentUser = state.data.filter((user) => user.id === payload.id)?.[0];
       return {
         ...state,
         isFetching: false,
-        current: payload,
+        current: currentUser,
       };
     }
     case TYPES.SIGN_OUT_SUCCESS: {

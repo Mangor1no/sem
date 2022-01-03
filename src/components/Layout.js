@@ -1,5 +1,6 @@
 import Header from 'components/Header';
 import { useMemo } from 'react';
+import { ToastContainer } from 'react-toastify';
 import Footer from './Footer';
 
 const Layout = ({ children }) => {
@@ -13,6 +14,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="md:h-screen flex flex-col">
+      <ToastContainer />
       {renderHeader}
       <>{children}</>
       {renderFooter}

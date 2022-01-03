@@ -21,7 +21,7 @@ const CategoryCard = ({ image, text, logo, category }) => {
             Shop now
           </button>
         </Link>
-        <p className="font-poppins text-sm mt-5 hidden group-hover:block">
+        <p className=" text-sm mt-5 hidden group-hover:block">
           Different types of coffee machine such as grinder, maker, roaster, etc from different
           brand
         </p>

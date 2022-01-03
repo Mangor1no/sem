@@ -6,13 +6,18 @@ const ErrorPage = () => {
   return (
     <Layout>
       <div className="my-80 flex flex-col items-center justify-center">
-        <p className="text-primary font-poppins font-semibold mb-4">What Happens Here</p>
-        <p className="uppercase text-xl font-semibold">PAGE YOU ARE looking is not found</p>
-        <div className="w-52 h-px bg-primary my-7" />
-        <img src="/images/404.png" alt="404" />
+        <p className="font-bold mb-4 text-[170px] leading-[231px]">404</p>
+        <p className="capitalize text-[42px] font-bold">Page Cannot Be Found</p>
+        <p className="max-w-[570px] text-center font-neue mb-8">
+          Seems like nothing was found at this location. Try something else or you can go back to
+          the homepage following the button below!
+        </p>
         <Link href="/">
-          <button type="button" className="px-12 py-3 uppercase bg-primary text-white rounded-md">
-            Back to shop
+          <button
+            type="button"
+            className="px-12 py-4 uppercase border border-blue-100 text-blue-100"
+          >
+            Back to home
           </button>
         </Link>
       </div>

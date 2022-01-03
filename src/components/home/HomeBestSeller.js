@@ -1,20 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { food as products } from 'data/constants';
 import { Transition } from '@headlessui/react';
 import Product from 'components/shop/Product';
-import { IconPriceRange } from 'constants/Icons';
+
+const tabs = ['all', 'new', 'best', 'featured', 'sale'];
 
 const HomeBestSeller = () => {
+  const [activeTab, setActiveTab] = useState('all');
+  const random = products.sort(() => 0.5 - Math.random()).slice(0, 8);
+
   return (
     <div className="flex flex-col items-center">
-      <p className="text-xl mt-2 font-semibold mb-4">BEST SELLER</p>
-      <div className="flex items-center justify-between mb-5">
-        <div className="w-[90px] h-[2px] bg-primary mr-1" />
-        <IconPriceRange />
-        <div className="w-[90px] h-[2px] bg-primary ml-1" />
+      <p className="text-[16px] leading-[25px] tracking-[.3em] text-blue-100 uppercase text-neue">
+        BEST PRODUCT
+      </p>
+      <p className="text-lg md:text-2xl font-bold mb-8 mmd:mb-16">New Collection</p>
+      <div className="flex items-center flex-wrap justify-center gap-3 mb-9 md:mb-[60px]">
+        {tabs.map((tab) => (
+          <button
+            type="button"
+            key={tab}
+            className={`px-[20px] py-3 rounded-[40px] uppercase border-2 ${
+              activeTab === tab ? 'border-blue-100 border-dashed' : 'border-transparent'
+            }`}
+            onClick={() => setActiveTab(tab)}
+          >
+            {tab}
+          </button>
+        ))}
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full gap-5">
-        {products?.slice(0, 8)?.map((product) => (
+        {random?.map((product) => (
           <Transition
             as="div"
             key={product.id}

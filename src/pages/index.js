@@ -1,11 +1,12 @@
 import HomeCategory from 'components/home/HomeCategory';
 import Layout from 'components/Layout';
-import HomeContact from 'components/home/HomeContact';
 import HomeBestSeller from 'components/home/HomeBestSeller';
-import HomeEmail from 'components/home/HomeEmail';
 import HomeBlog from 'components/home/HomeBlog';
-import HomeClient from 'components/home/HomeClient';
 import Link from 'next/link';
+import HomeSale from 'components/home/HomeSale';
+import HomeBestDeal from 'components/home/HomeBestDeal';
+import HomeFlashDeal from 'components/home/HomeFlashDeal';
+import HomeBestProduct from 'components/home/HomeBestProduct';
 
 export default function Home() {
   return (
@@ -15,11 +16,15 @@ export default function Home() {
           className="flex items-center px-4 sm:px-20 xl:px-40 2xl:px-60 3xl:px-[368px] relative w-full h-full"
           style={{ minHeight: 'inherit' }}
         >
-          <div className="w-1/2 z-10">
+          <div className="w-full md:w-1/2 z-10">
+            <p className="text-base md:text-lg font-bold inline-flex items-center space-x-3 mb-4">
+              <div className="h-[3px] w-14 bg-yellow-100" />
+              <span>UP TO 40% OFF</span>
+            </p>
             <p className="capitalize text-4xl lg:text-6xl xl:text-7xl xl:leading-[102px] font-bold mb-4">
               A Greate Meal <br /> With Your Pet
             </p>
-            <Link href="/shop/coffee-machine">
+            <Link href="/shop/food">
               <button
                 type="button"
                 className="btn-primary text-bold px-14 py-4 uppercase transition duration-150"
@@ -31,27 +36,30 @@ export default function Home() {
           <img
             src="images/home/banner.png"
             alt="banner"
-            className="absolute bottom-0 right-0 w-2/3 max-w-[960px]"
+            className="hidden md:block absolute bottom-0 right-0 w-2/3 max-w-[960px]"
           />
         </div>
       </div>
-      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] w-full py-16 md:py-[50px] bg-black-2">
+      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] w-full py-16 md:pt-[50px] md:pb-[86px] bg-black-2">
         <HomeCategory />
       </div>
-      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] w-full grid md:grid-cols-2 gap-x-5 mb-16 md:mb-[160px]">
-        <HomeEmail />
+      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] w-full my-16 md:mb-[114px] md:mt-[146px]">
+        <HomeSale />
       </div>
-      <div className="max-h-[600px] min-h-[500px] relative mb-16 md:mb-[160px]">
-        <HomeContact />
-      </div>
-      <div className="px-5 sm:px-16 xl:px-[250px] 2xl:px-[370px] w-full mb-16 md:mb-[160px]">
+      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] w-full mb-16 md:mb-[160px]">
         <HomeBestSeller />
       </div>
-      <div className="px-5 sm:px-16 xl:px-[250px] 2xl:px-[370px] w-full mb-16 md:mb-[160px]">
-        <HomeBlog />
+      <div className="max-h-[600px] md:min-h-[500px] relative">
+        <HomeBestDeal />
       </div>
-      <div className="px-5 sm:px-16 xl:px-[250px] 2xl:px-[370px] w-full mb-16 md:mb-[160px]">
-        <HomeClient />
+      <div className="px-5 sm:px-16 w-full mb-16 md:mb-20 bg-black-2">
+        <HomeFlashDeal />
+      </div>
+      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] w-full mb-16 md:mb-[200px]">
+        <HomeBestProduct />
+      </div>
+      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] w-full mb-16 md:mb-[160px]">
+        <HomeBlog />
       </div>
     </Layout>
   );

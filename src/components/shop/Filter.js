@@ -1,5 +1,4 @@
-import { Disclosure, Transition } from '@headlessui/react';
-import { IconCheckboxCheck, IconPriceRange } from 'constants/Icons';
+import { IconSearch } from 'constants/Icons';
 import { filterType } from 'data/constants';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Range } from 'react-range';
@@ -8,11 +7,12 @@ const Filter = ({ handleFilter, products }) => {
   const [priceRange, setPriceRange] = useState([0, 99999]);
   const [lowestPrice, setLowestPrice] = useState(0);
   const [highestPrice, setHighestPrice] = useState(99999);
-  const [brandList, setBrandList] = useState([]);
-  const [colorList, setColorList] = useState([]);
-  const [selectedColor, setSelectedColor] = useState([]);
-  const [selectedBrand, setSelectedBrand] = useState([]);
+  const [variationList, setVariationList] = useState([]);
+  const [tagList, setTagList] = useState([]);
+  const [selectedVariation, setSelectedVariation] = useState([]);
   const [selectedPriceRange, setSelectedPriceRange] = useState([0, 99999]);
+  const [selectedTag, setSelectedTag] = useState([]);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     const priceList = products.map((product) => product.price).sort((a, b) => a - b);
@@ -20,45 +20,45 @@ const Filter = ({ handleFilter, products }) => {
     setSelectedPriceRange([Math.floor(priceList[0]), Math.ceil(priceList[priceList.length - 1])]);
     setHighestPrice(Math.ceil(priceList[priceList.length - 1]));
     setLowestPrice(Math.floor(priceList[0]));
-    const brands = [...new Set(products.map((cat) => cat.brand))];
-    const colors = [...new Set(products.map((cat) => cat.variations).flat())];
-    setBrandList(brands);
-    setColorList(colors);
+    const variations = [...new Set(products.map((cat) => cat.variations).flat())];
+    const tags = [...new Set(products.map((cat) => cat.metadata.form).flat())];
+    setTagList(tags);
+    setVariationList(variations);
   }, [products]);
 
-  const handleFilterColor = (color) => () => {
-    let tempColor = [...selectedColor];
+  const handleFilterVariation = (variation) => () => {
+    let tempColor = [...selectedVariation];
 
-    if (tempColor.includes(color)) {
-      tempColor = tempColor.filter((col) => {
-        return col !== color;
+    if (tempColor.includes(variation)) {
+      tempColor = tempColor.filter((va) => {
+        return va !== variation;
       });
     } else {
-      tempColor.push(color);
+      tempColor.push(variation);
     }
-    return setSelectedColor(tempColor);
+    return setSelectedVariation(tempColor);
   };
 
-  const handleFilterBrand = (brand) => () => {
-    let tempBrand = [...selectedBrand];
+  const handleFilterTag = (tag) => () => {
+    let tempTag = [...selectedTag];
 
-    if (tempBrand.includes(brand)) {
-      tempBrand = tempBrand.filter((br) => {
-        return br !== brand;
+    if (tempTag.includes(tag)) {
+      tempTag = tempTag.filter((br) => {
+        return br !== tag;
       });
     } else {
-      tempBrand.push(brand);
+      tempTag.push(tag);
     }
-    return setSelectedBrand(tempBrand);
+    return setSelectedTag(tempTag);
   };
 
   useEffect(() => {
-    handleFilter({ selectedColor, selectedBrand, selectedPriceRange });
-  }, [selectedColor, selectedBrand, selectedPriceRange]);
+    handleFilter({ selectedVariation, selectedPriceRange, selectedTag, productName: search });
+  }, [selectedVariation, selectedPriceRange, selectedTag, search]);
 
   const renderFilterPrice = useCallback(() => {
     return (
-      <div className="pl-3 pb-9">
+      <div className="pl-3 pt-9">
         <Range
           step={10}
           min={lowestPrice}
@@ -76,17 +76,15 @@ const Filter = ({ handleFilter, products }) => {
                 height: '4px',
                 width: '100%',
               }}
-              className="bg-primary"
+              className="bg-blue-100"
             >
               {children}
             </div>
           )}
           renderThumb={({ props, index }) => (
             <div {...props} className="flex items-center justify-center">
-              <div className="bg-white">
-                <IconPriceRange />
-              </div>
-              <p className="absolute top-8 text-center font-oswald">${priceRange[index]}</p>
+              <p className="bg-white w-[14px] h-[14px] min-w-[14px] rounded-full border-2 border-blue-100" />
+              <p className="absolute bottom-6 text-center text-black-50">${priceRange[index]}</p>
             </div>
           )}
         />
@@ -94,71 +92,89 @@ const Filter = ({ handleFilter, products }) => {
     );
   }, [lowestPrice, highestPrice, priceRange]);
 
-  const renderFilterBrand = useCallback(() => {
-    return (
-      <div className="w-full">
-        <ul className="max-h-48 overflow-y-auto overflow-x-hidden">
-          {brandList.map((brand, index) => (
-            <li
-              key={brand}
-              className={`flex items-center ${index === brandList.length - 1 ? '' : 'mb-4'}`}
-            >
-              <div className="relative flex items-center justify-center">
-                <input
-                  type="checkbox"
-                  id={brand}
-                  className="appearance-none w-4 h-4 min-w-4 border border-bgPrimary checked:border-primary checked:bg-primary mr-2 cursor-pointer rounded-[4px]"
-                  onChange={handleFilterBrand(brand)}
-                  checked={selectedBrand?.includes(brand)}
-                />
-                <div className="absolute left-[3px]">
-                  <IconCheckboxCheck />
-                </div>
-              </div>
-              <label htmlFor={brand} className="cursor-pointer w-full text-sm">
-                {brand}
-              </label>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }, [brandList, selectedBrand]);
-
-  const renderFilterColor = useCallback(() => {
+  const renderFilterVariation = useCallback(() => {
     return (
       <div className="w-full -my-2">
         <ul className="flex items-center">
-          {colorList.map((color, index) => (
+          {variationList.map((variation, index) => (
             <li
-              key={color}
-              className={`flex items-center ${index === colorList.length - 1 ? '' : 'mr-4'}`}
+              key={variation}
+              className={`relative flex items-center justify-center ${
+                index === variationList.length - 1 ? '' : 'mr-4'
+              }`}
             >
               <input
                 type="checkbox"
-                id={color}
-                className="w-6 h-6 min-w-6 rounded-full appearance-none checked:ring-2 checked:ring-primary checked:ring-offset-2 cursor-pointer"
-                style={{ backgroundColor: color }}
-                onChange={handleFilterColor(color)}
-                checked={selectedColor?.includes(color)}
+                id={variation}
+                className="w-8 h-8 min-w-[32px] rounded-full appearance-none bg-[#ECECEF] border border-[#C9C9C9] ring-2 ring-white checked:ring-1 checked:ring-blue-100 checked:bg-blue-100 checked:ring-offset-2 cursor-pointer"
+                onChange={handleFilterVariation(variation)}
+                checked={selectedVariation?.includes(variation)}
               />
+              <span
+                className={`${
+                  selectedVariation?.includes(variation) && 'text-white'
+                } absolute inset-0 pointer-events-none flex items-center justify-center`}
+              >
+                {variation}
+              </span>
             </li>
           ))}
         </ul>
       </div>
     );
-  }, [colorList, selectedColor]);
+  }, [variationList, selectedVariation]);
+
+  const renderFilterTag = useCallback(() => {
+    return (
+      <div className="w-full -my-2">
+        <div className="flex items-center w-full flex-wrap gap-3">
+          {tagList.map((tag, index) => (
+            <button
+              type="button"
+              id={tag}
+              className={`cursor-pointer min-w-max w-max px-4 py-2 border ${
+                selectedTag.includes(tag)
+                  ? 'border-blue-100 text-blue-100'
+                  : 'border-[#C9C9C9] text-black-50'
+              }`}
+              onClick={handleFilterTag(tag)}
+              key={tag}
+            >
+              <span className="pointer-events-none flex items-center justify-center">{tag}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }, [tagList, selectedTag]);
+
+  const renderFilterName = useCallback(() => {
+    return (
+      <div className="w-full bg-blue-100 text-white flex items-center order-first">
+        <input
+          type="text"
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+          className="bg-blue-100 focus:outline-none py-3 px-5 placeholder-white italic w-full"
+          placeholder="Search here..."
+        />
+        <div className="px-3 flex-1 border-l border-white">
+          <IconSearch />
+        </div>
+      </div>
+    );
+  }, [search]);
 
   const renderFilter = (type) => {
     switch (type) {
       case filterType[0]: {
-        return renderFilterBrand();
-      }
-      case filterType[1]: {
         return renderFilterPrice();
       }
+      case filterType[1]: {
+        return renderFilterVariation();
+      }
       case filterType[2]: {
-        return renderFilterColor();
+        return renderFilterTag();
       }
       default:
         return null;
@@ -166,42 +182,30 @@ const Filter = ({ handleFilter, products }) => {
   };
 
   return (
-    <div className="w-full">
-      <p className="text-lg uppercase font-bold">Filter</p>
-      <div className="h-px w-[90px] bg-primary mt-2 mb-4" />
-      {filterType.map((filter, index) => {
-        return (
-          <Disclosure as="div" className={`font-semibold ${index === 0 ? '' : 'mt-2'}`} key={index}>
-            {({ open }) => (
-              <>
-                <Disclosure.Button className="flex items-center my-4">
-                  {open ? (
-                    <div className="w-[10px] h-px bg-bgPrimary" />
-                  ) : (
-                    <span className="w-[10px]">+</span>
-                  )}
-                  <span className="uppercase ml-4 text-base">{filter}</span>
-                </Disclosure.Button>
-                <Transition
-                  as="div"
-                  show={open}
-                  enter="transition ease-out duration-200"
-                  enterFrom="opacity-0 -translate-y-2"
-                  enterTo="opacity-100 translate-y-0"
-                  leave="transition ease-in duration-150"
-                  leaveFrom="opacity-100 translate-y-0"
-                  leaveTo="opacity-0 -translate-y-2"
-                >
-                  <Disclosure.Panel className="w-full pl-[26px] pr-4 py-2 font-poppins">
-                    {renderFilter(filter)}
-                  </Disclosure.Panel>
-                </Transition>
-              </>
-            )}
-          </Disclosure>
-        );
-      })}
-    </div>
+    <>
+      {renderFilterName()}
+      <div className="px-[30px] py-[25px] pb-[50px] bg-black-2">
+        <p className="text-base capitalize font-neue inline-flex items-center space-x-3 mb-6">
+          <div className="w-2 h-2 min-w-[8px] border border-blue-100 rounded-full" />{' '}
+          <span>Size</span>
+        </p>
+        {renderFilter('variation')}
+      </div>
+      <div className="px-[30px] py-[25px] pb-[50px] bg-black-2 order-first">
+        <p className="text-base capitalize font-neue inline-flex items-center space-x-3 mb-6">
+          <div className="w-2 h-2 min-w-[8px] border border-blue-100 rounded-full" />{' '}
+          <span>Price</span>
+        </p>
+        {renderFilter('price')}
+      </div>
+      <div className="px-[30px] py-[25px] pb-[50px] bg-black-2">
+        <p className="text-base capitalize font-neue inline-flex items-center space-x-3 mb-6">
+          <div className="w-2 h-2 min-w-[8px] border border-blue-100 rounded-full" />{' '}
+          <span>Tag</span>
+        </p>
+        {renderFilter('tag')}
+      </div>
+    </>
   );
 };
 

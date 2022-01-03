@@ -2,38 +2,33 @@
 export const categories = [
   {
     id: 0,
-    category: 'Food',
+    category: 'food',
     name: 'Food',
     image: '/images/home/home-category-1.png',
   },
   {
     id: 1,
-    category: 'Accessories',
-    name: 'Accessories',
-    image: '/images/home/home-category-2.png',
-  },
-  {
-    id: 2,
-    category: 'Clothes',
+    category: 'clothes',
     name: 'Clothes',
     image: '/images/home/home-category-3.png',
   },
   {
-    id: 3,
-    category: 'Medicine',
+    id: 2,
+    category: 'medicine',
     name: 'Medicine',
     image: '/images/home/home-category-4.png',
   },
   {
-    id: 4,
-    category: 'Comestic',
+    id: 3,
+    category: 'comestic',
     name: 'Comestic',
     image: '/images/home/home-category-5.png',
   },
   {
-    id: 5,
-    category: 'Toy',
+    id: 4,
+    category: 'toy',
     name: 'Toy',
+    image: '/images/home/home-category-2.png',
   },
 ];
 
@@ -54,10 +49,11 @@ export const food = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 42,
-    // metadata: {
-    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //        },
-    //       },
+    variations: ['S', 'XL'],
+    metadata: {
+      form: 'Wet Food',
+      weight: '196g',
+    },
   },
 
   {
@@ -76,10 +72,11 @@ export const food = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 35,
-    // metadata: {
-    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //        },
-    //       },
+    variations: ['S', 'M'],
+    metadata: {
+      form: 'Dry Food',
+      weight: '196g',
+    },
   },
 
   {
@@ -98,148 +95,12 @@ export const food = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 2,
-    // metadata: {
-    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //        },
-    //       },
+    variations: ['M', 'L', 'XL'],
+    metadata: {
+      form: 'Dry Food',
+      weight: '196g',
+    },
   },
-
-  {
-    id: 3,
-    name: 'ABC-Dog Toys',
-    category: 'Toy',
-    image: ['/images/products/3.jpg'],
-    rating: 5,
-    price: 33.0,
-    brand: 'Bialetti',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
-    stock: 2,
-    // metadata: {
-    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //        },
-    //       },
-  },
-
-  {
-    id: 4,
-    name: ' ABC-square mattress size 2',
-    category: 'Accessories',
-    image: ['/images/products/4.jpg'],
-    rating: 5,
-    price: 33.0,
-    brand: 'Bialetti',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
-    stock: 2,
-    // metadata: {
-    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //        },
-    //       },
-  },
-
-  {
-    id: 5,
-    name: 'Baby Powder',
-    category: 'Accessories',
-    image: ['/images/products/5.jpg'],
-    rating: 5,
-    price: 33.0,
-    brand: 'Bialetti',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
-    stock: 2,
-    // metadata: {
-    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //        },
-    //       },
-  },
-
-  {
-    id: 6,
-    name: 'Meowing Heads-Dry Cat ',
-    category: 'Accessories',
-    image: ['/images/products/6.jpg'],
-    rating: 5,
-    price: 33.0,
-    brand: 'Bialetti',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
-    stock: 2,
-    // metadata: {
-    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //        },
-    //       },
-  },
-
-  {
-    id: 7,
-    name: 'Hagen-Kitty Rubber Brush',
-    category: 'Accessories',
-    image: ['/images/products/7.jpg'],
-    rating: 5,
-    price: 33.0,
-    brand: 'Bialetti',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
-    stock: 2,
-    // metadata: {
-    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //        },
-    //       },
-  },
-
-  {
-    id: 8,
-    name: 'Omega 3 Healty Care',
-    category: 'Medicine',
-    image: ['/images/products/8.jpg'],
-    rating: 5,
-    price: 33.0,
-    brand: 'Bialetti',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
-    stock: 2,
-    // metadata: {
-    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //        },
-    //       },
-  },
-
-  {
-    id: 9,
-    name: 'ABC-Nail Scratcher',
-    category: 'Accessories',
-    image: ['/images/products/9.jpg'],
-    rating: 5,
-    price: 33.0,
-    brand: 'Bialetti',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
-    stock: 2,
-    // metadata: {
-    //    {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //        },
-    //       },
-  },
-
-  {
-    id: 9,
-    name: 'ABC-Nail Scratcher',
-    category: 'Accessories',
-    image: ['/images/products/9.jpg'],
-    rating: 5,
-    price: 33.0,
-    brand: 'Bialetti',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
-    stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
-  },
-
   {
     id: 10,
     name: "Napoleon's Nibbles",
@@ -251,44 +112,11 @@ export const food = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
-  },
-
-  {
-    id: 11,
-    name: 'S0S-Special For Cat',
-    category: 'Medicine',
-    image: ['/images/products/11.jpg'],
-    rating: 5,
-    price: 33.0,
-    brand: 'Bialetti',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
-    stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
-  },
-
-  {
-    id: 12,
-    name: 'Endeavor Daytripa',
-    category: 'Clothes',
-    image: ['/images/products/12.jpg'],
-    rating: 5,
-    price: 33.0,
-    brand: 'Bialetti',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
-    stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
+    variations: ['S', 'M', 'L', 'XL'],
+    metadata: {
+      form: 'Wet Food',
+      weight: '196g',
+    },
   },
 
   {
@@ -302,10 +130,11 @@ export const food = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
+    variations: ['S', 'M', 'L', 'XL'],
+    metadata: {
+      form: 'Wet Food',
+      weight: '196g',
+    },
   },
 
   {
@@ -319,10 +148,11 @@ export const food = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
+    variations: ['S', 'XL'],
+    metadata: {
+      form: 'Dry Food',
+      weight: '196g',
+    },
   },
 
   {
@@ -336,10 +166,11 @@ export const food = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
+    variations: ['S', 'M', 'XL'],
+    metadata: {
+      form: 'Wet Food',
+      weight: '196g',
+    },
   },
 
   {
@@ -353,10 +184,11 @@ export const food = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
+    variations: ['S', 'M', 'L'],
+    metadata: {
+      form: 'Dry Food',
+      weight: '196g',
+    },
   },
 
   {
@@ -370,10 +202,11 @@ export const food = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
+    variations: ['S', 'M'],
+    metadata: {
+      form: 'Wet Food',
+      weight: '196g',
+    },
   },
 
   {
@@ -387,10 +220,11 @@ export const food = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
+    variations: ['S', 'L', 'XL'],
+    metadata: {
+      form: 'Dry Food',
+      weight: '196g',
+    },
   },
 
   {
@@ -404,27 +238,85 @@ export const food = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
+    variations: ['S', 'XL'],
+    metadata: {
+      form: 'Dry Food',
+      weight: '196g',
+    },
   },
-
   {
-    id: 19,
-    name: 'Endeavor Daytripa Hairball',
+    id: 21,
+    name: 'Chocolate Bombom Sortidos ',
     category: 'Food',
-    image: ['/images/products/19.jpg'],
+    image: ['/images/products/21.jpg'],
     rating: 5,
     price: 33.0,
     brand: 'Bialetti',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
+    variations: ['M', 'L', 'XL'],
+    metadata: {
+      form: 'Wet Food',
+      weight: '196g',
+    },
+  },
+];
+
+export const toy = [
+  {
+    id: 3,
+    name: 'ABC-Dog Toys',
+    category: 'Toy',
+    image: ['/images/products/3.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    variations: ['L', 'XL'],
+    metadata: {
+      form: 'Cute',
+      weight: '256g',
+    },
+  },
+];
+
+export const medicine = [
+  {
+    id: 8,
+    name: 'Omega 3 Healty Care',
+    category: 'Medicine',
+    image: ['/images/products/8.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    variations: ['M', 'L', 'XL'],
+    metadata: {
+      form: 'Drink',
+      weight: '600ml',
+    },
+  },
+  {
+    id: 11,
+    name: 'S0S-Special For Cat',
+    category: 'Medicine',
+    image: ['/images/products/11.jpg'],
+    rating: 5,
+    price: 33.0,
+    brand: 'Bialetti',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    variations: ['S', 'XL'],
+    metadata: {
+      form: 'Drink',
+      weight: '600ml',
+    },
   },
 
   {
@@ -438,424 +330,223 @@ export const food = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
+    variations: ['S', 'M'],
+    metadata: {
+      form: 'Pill',
+      weight: '400g',
+    },
   },
+];
 
+export const clothes = [
   {
-    id: 21,
-    name: 'Chocolate Bombom Sortidos ',
-    category: 'Food',
-    image: ['/images/products/21.jpg'],
+    id: 12,
+    name: 'Endeavor Daytripa',
+    category: 'clothes',
+    image: ['/images/products/12.jpg'],
     rating: 5,
     price: 33.0,
     brand: 'Bialetti',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
+    variations: ['S', 'L', 'XL'],
+    metadata: {
+      form: 'Old Fashion',
+      weight: '600ml',
+    },
   },
+];
 
+export const comestic = [
   {
-    id: 22,
-    name: 'Endeavor Daytripa Bag',
-    category: 'Accessories',
-    image: ['/images/products/22.jpg'],
+    id: 24,
+    name: 'Dumon Nail Scissors For Pet',
+    category: 'Comestic',
+    image: ['/images/products/24.jpg'],
     rating: 5,
-    price: 33.0,
+    price: 5.0,
     brand: 'Bialetti',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
+    variations: ['S', 'M', 'L'],
+    metadata: {
+      form: 'Liquid',
+      weight: '600ml',
+    },
   },
 
   {
-    id: 23,
-    name: 'Endeavor Daytripa Pro',
-    category: 'Accessories',
-    image: ['/images/products/23.jpg'],
+    id: 25,
+    name: 'HooPet Bristle Brush',
+    category: 'Comestic',
+    image: ['/images/products/25.jpg'],
     rating: 5,
-    price: 33.0,
+    price: 7.0,
     brand: 'Bialetti',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
     stock: 2,
-    // metadata: {
-    //      {Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-    //          },
-    //         },
-  },
-];
-
-export const baristaTools = [
-  {
-    id: 0,
-    name: 'Delonghi Tamper',
-    category: 'barista-tools',
-    subCategory: 'tampers-and-mats',
-    image: [
-      '/images/products/product-24.png',
-      '/images/products/product-24.png',
-      '/images/products/product-24.png',
-      '/images/products/product-24.png',
-      '/images/products/product-24.png',
-    ],
-    rating: 4,
-    price: 28.5,
-    oldPrice: 53.25,
-    variations: ['black', 'gray'],
-    brand: 'Delonghi',
-    description:
-      "The better result are obtaines using De'longhi calibrated coffee tamper to give the right pressure to ground coffee into the filter.",
-    stock: 42,
+    variations: ['S', 'L', 'XL'],
     metadata: {
-      details: {
-        dimensions: '51.5x51.5x90.9mm',
-        weight: '283.50g',
-        material: 'Metal',
-        country: 'Italia',
-      },
+      form: 'Health care',
+      weight: '300g',
     },
   },
   {
-    id: 1,
-    name: 'Delonghi Shot Glass',
-    category: 'barista-tools',
-    subCategory: 'cups-and-mugs',
-    image: [
-      '/images/products/product-12.png',
-      '/images/products/product-12.png',
-      '/images/products/product-12.png',
-      '/images/products/product-12.png',
-      '/images/products/product-12.png',
-    ],
+    id: 26,
+    name: 'Trixie Naturol Shampoo',
+    category: 'Comestic',
+    image: ['/images/products/26.jpg'],
     rating: 5,
-    price: 14.99,
-    variations: ['#F2F2F2', 'gray'],
-    brand: 'Delonghi',
-    description:
-      'Serve robust espresso at home in double-wall-insulated glasses that keep drinks hot or cold and limit condensation. The dishwasher-safe design allows quick and easy cleaning.',
-    stock: 42,
-    metadata: {
-      details: {
-        dimensions: '63.5x63.5x63.5mm',
-        weight: '113.40g',
-        cable_length: '1.0m',
-        tank_capacity: '0.03L',
-        material: 'Glass',
-        country: 'Italia',
-      },
-    },
-  },
-];
-
-export const coffeeBeans = [
-  {
-    id: 0,
-    name: 'Roasted Coffee Beans',
-    category: 'coffee-beans',
-    subCategory: 'roasted',
-    image: [
-      '/images/products/product-11.png',
-      '/images/products/product-11.png',
-      '/images/products/product-11.png',
-      '/images/products/product-11.png',
-      '/images/products/product-11.png',
-    ],
-    rating: 4,
-    price: 19.95,
-    variations: ['black'],
+    price: 7.0,
     brand: 'Bialetti',
     description:
-      'Since more than 80 years, Bialetti is delivering the perfect coffee to worldwide homes.',
-    stock: 42,
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    variations: ['S', 'L', 'XL'],
     metadata: {
-      details: {
-        dimensions: '255x70x80mm',
-        weight: '0.26g',
-        flavor: 'Flower, Dried Fruit',
-        roast_level: 'Medium-roast',
-        special_ingredient: 'Italia Espresso Roasted',
-        model: '8006363031646',
-        country: 'Italia',
-      },
+      form: 'Shampoo',
+      weight: '600ml',
+    },
+  },
+
+  {
+    id: 27,
+    name: 'Olive Essence Shampoo',
+    category: 'Comestic',
+    image: ['/images/products/27.jpg'],
+    rating: 5,
+    price: 7.0,
+    brand: 'Bialetti',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipis elit, sed do eiusmod empor incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nol exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.',
+    stock: 2,
+    variations: ['S', 'M', 'XL'],
+    metadata: {
+      form: 'Shampoo',
+      weight: '600ml',
     },
   },
 ];
 
-export const filterType = ['brand', 'price', 'color'];
+export const filterType = ['price', 'variation', 'tag'];
 
 export const blogs = [
   {
     id: 0,
     createdAt: Date.now(),
-    category: 'coffee-machine',
-    title: 'HOW To make coffee at home',
-    shortDesc:
-      'To make true Italian espresso at home that rivals what you’d get in a coffee shop, you need an manual espresso machine to make good coffee.',
-    banner: '/images/home/home-blog-2.jpg',
-    author: 'Minh Ngoc',
+    category: 'food',
+    title: 'Why do dogs bite their owners? ',
+    shortDesc: 'Why do dogs bite their owners? ',
+    banner: '/images/home/blog-1.png',
+    author: 'Admin',
     content: `
-            <div class="font-poppins text-sm">
+            <div class="text-sm font-neue">
               <p class="mb-4">
-                If you're looking to cut down on visits to your local coffee shop, the best home
-                espresso machines can help you get your latte or cappuccino right in your own
-                kitchen. The best home espresso machines offer much more than a basic brew, they
-                appeal to both newbies and budding baristas looking to take their caffeine devotion
-                to the next level.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis laoreet sed volutpat pharetra id quis mauris nisi. Et risus aliquam pellentesque neque at et. Sit dui nunc odio porttitor ut rhoncus sit tellus. Sed feugiat eget sed feugiat eget. Viverra arcu felis, eget integer vitae, egestas proin viverra facilisis. Est urna metus vulputate eget metus, fringilla fringilla mauris. A nam proin risus fringilla risus urna, nisi. Ipsum tortor tellus a, imperdiet etiam etiam ac maecenas felis.
               </p>
-              <p class="uppercase mb-2 font-base font-bold">1. Bialetti espresso machine</p>
               <p>
-                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
-                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
-                you can use your own pre-ground beans in the second chamber. In addition to
-                selecting from automatic single or double brewing options, you can also customize
-                the espresso strength, size, temperature to your tastes.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis laoreet sed volutpat pharetra id quis mauris nisi. Et risus aliquam pellentesque neque at et. Sit dui nunc odio porttitor ut rhoncus sit tellus. Sed feugiat eget sed feugiat eget. Viverra arcu felis, eget integer vitae, egestas proin viverra facilisis. Est urna metus vulputate eget metus, fringilla fringilla mauris. A nam proin risus fringilla risus urna, nisi. Ipsum tortor tellus a, imperdiet etiam etiam ac maecenas felis
               </p>
-              <div class="flex items-center justify-center my-4">
+              <div class="flex items-center justify-center" style="margin: 63px 0">
                 <img
-                  src="/images/coffee-machine-2.png"
+                  src="/images/home/blog-1.png"
                   alt="Bialetti"
                   class="max-h-[250px] object-cover"
                 />
               </div>
-              <p class="uppercase mb-2 font-base font-bold">2. delonghi espresso machine</p>
               <p>
-                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
-                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
-                you can use your own pre-ground beans in the second chamber. In addition to
-                selecting from automatic single or double brewing options, you can also customize
-                the espresso strength, size, temperature to your tastes.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis laoreet sed volutpat pharetra id quis mauris nisi. Et risus aliquam pellentesque neque at et. Sit dui nunc odio porttitor ut rhoncus sit tellus. Sed feugiat eget sed feugiat eget. Viverra arcu felis, eget integer vitae, egestas proin viverra facilisis. Est urna metus vulputate eget metus, fringilla fringilla mauris. A nam proin risus fringilla risus urna, nisi. Ipsum tortor tellus a, imperdiet etiam etiam ac maecenas felis
               </p>
-              <div class="flex items-center justify-center my-4">
-                <img
-                  src="/images/coffee-machine-4.png"
-                  alt="Bialetti"
-                  class="max-h-[250px] object-cover"
-                />
-              </div>
-              <p class="uppercase mb-2 font-base font-bold">3. NESPRESSO espresso machine</p>
-              <p>
-                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
-                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
-                you can use your own pre-ground beans in the second chamber. In addition to
-                selecting from automatic single or double brewing options, you can also customize
-                the espresso strength, size, temperature to your tastes.
-              </p>
-              <div class="flex items-center justify-center my-4">
-                <img
-                  src="/images/coffee-machine-3.png"
-                  alt="Bialetti"
-                  class="max-h-[250px] object-cover"
-                />
-              </div>
             </div>
           `,
   },
   {
     id: 1,
     createdAt: Date.now(),
-    category: 'coffee-beans',
-    title: 'Beginner guide to COFFEE GRINDER ',
-    shortDesc:
-      'The purpose of this section is to let you in on all the little things that you don’t normally hear about coffee grinders. Here is some of my explaination.',
-    banner: '/images/home/home-blog-2.jpg',
-    author: 'Minh Ngoc',
+    category: 'food',
+    title: 'Caring for cats after giving birth.',
+    shortDesc: 'Caring for cats after giving birth.',
+    banner: '/images/home/blog-2.png',
+    author: 'Admin',
     content: `
-            <div class="font-poppins text-sm">
+            <div class="text-sm font-neue">
               <p class="mb-4">
-                If you're looking to cut down on visits to your local coffee shop, the best home
-                espresso machines can help you get your latte or cappuccino right in your own
-                kitchen. The best home espresso machines offer much more than a basic brew, they
-                appeal to both newbies and budding baristas looking to take their caffeine devotion
-                to the next level.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis laoreet sed volutpat pharetra id quis mauris nisi. Et risus aliquam pellentesque neque at et. Sit dui nunc odio porttitor ut rhoncus sit tellus. Sed feugiat eget sed feugiat eget. Viverra arcu felis, eget integer vitae, egestas proin viverra facilisis. Est urna metus vulputate eget metus, fringilla fringilla mauris. A nam proin risus fringilla risus urna, nisi. Ipsum tortor tellus a, imperdiet etiam etiam ac maecenas felis.
               </p>
-              <p class="uppercase mb-2 font-base font-bold">1. Bialetti espresso machine</p>
               <p>
-                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
-                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
-                you can use your own pre-ground beans in the second chamber. In addition to
-                selecting from automatic single or double brewing options, you can also customize
-                the espresso strength, size, temperature to your tastes.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis laoreet sed volutpat pharetra id quis mauris nisi. Et risus aliquam pellentesque neque at et. Sit dui nunc odio porttitor ut rhoncus sit tellus. Sed feugiat eget sed feugiat eget. Viverra arcu felis, eget integer vitae, egestas proin viverra facilisis. Est urna metus vulputate eget metus, fringilla fringilla mauris. A nam proin risus fringilla risus urna, nisi. Ipsum tortor tellus a, imperdiet etiam etiam ac maecenas felis
               </p>
-              <div class="flex items-center justify-center my-4">
+              <div class="flex items-center justify-center" style="margin: 63px 0">
                 <img
-                  src="/images/coffee-machine-2.png"
+                  src="/images/home/blog-1.png"
                   alt="Bialetti"
                   class="max-h-[250px] object-cover"
                 />
               </div>
-              <p class="uppercase mb-2 font-base font-bold">2. delonghi espresso machine</p>
               <p>
-                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
-                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
-                you can use your own pre-ground beans in the second chamber. In addition to
-                selecting from automatic single or double brewing options, you can also customize
-                the espresso strength, size, temperature to your tastes.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis laoreet sed volutpat pharetra id quis mauris nisi. Et risus aliquam pellentesque neque at et. Sit dui nunc odio porttitor ut rhoncus sit tellus. Sed feugiat eget sed feugiat eget. Viverra arcu felis, eget integer vitae, egestas proin viverra facilisis. Est urna metus vulputate eget metus, fringilla fringilla mauris. A nam proin risus fringilla risus urna, nisi. Ipsum tortor tellus a, imperdiet etiam etiam ac maecenas felis
               </p>
-              <div class="flex items-center justify-center my-4">
-                <img
-                  src="/images/coffee-machine-4.png"
-                  alt="Bialetti"
-                  class="max-h-[250px] object-cover"
-                />
-              </div>
-              <p class="uppercase mb-2 font-base font-bold">3. NESPRESSO espresso machine</p>
-              <p>
-                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
-                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
-                you can use your own pre-ground beans in the second chamber. In addition to
-                selecting from automatic single or double brewing options, you can also customize
-                the espresso strength, size, temperature to your tastes.
-              </p>
-              <div class="flex items-center justify-center my-4">
-                <img
-                  src="/images/coffee-machine-3.png"
-                  alt="Bialetti"
-                  class="max-h-[250px] object-cover"
-                />
-              </div>
             </div>
           `,
   },
   {
     id: 2,
     createdAt: Date.now(),
-    category: 'coffee-machine',
-    title: 'TOP 3 espresso machines 2021',
-    shortDesc:
-      "If you're looking to cut down on visits to your local coffee shop, the best home espresso machines can help you get your coffee right in your own kitchen.",
-    banner: '/images/home/home-blog-2.jpg',
-    author: 'Minh Ngoc',
+    category: 'toy',
+    title: 'How to teach dogs to live peacefully.',
+    shortDesc: 'How to teach dogs to live peacefully.',
+    banner: '/images/home/blog-3.png',
+    author: 'Admin',
     content: `
-            <div class="font-poppins text-sm">
+            <div class="text-sm font-neue">
               <p class="mb-4">
-                If you're looking to cut down on visits to your local coffee shop, the best home
-                espresso machines can help you get your latte or cappuccino right in your own
-                kitchen. The best home espresso machines offer much more than a basic brew, they
-                appeal to both newbies and budding baristas looking to take their caffeine devotion
-                to the next level.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis laoreet sed volutpat pharetra id quis mauris nisi. Et risus aliquam pellentesque neque at et. Sit dui nunc odio porttitor ut rhoncus sit tellus. Sed feugiat eget sed feugiat eget. Viverra arcu felis, eget integer vitae, egestas proin viverra facilisis. Est urna metus vulputate eget metus, fringilla fringilla mauris. A nam proin risus fringilla risus urna, nisi. Ipsum tortor tellus a, imperdiet etiam etiam ac maecenas felis.
               </p>
-              <p class="uppercase mb-2 font-base font-bold">1. Bialetti espresso machine</p>
               <p>
-                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
-                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
-                you can use your own pre-ground beans in the second chamber. In addition to
-                selecting from automatic single or double brewing options, you can also customize
-                the espresso strength, size, temperature to your tastes.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis laoreet sed volutpat pharetra id quis mauris nisi. Et risus aliquam pellentesque neque at et. Sit dui nunc odio porttitor ut rhoncus sit tellus. Sed feugiat eget sed feugiat eget. Viverra arcu felis, eget integer vitae, egestas proin viverra facilisis. Est urna metus vulputate eget metus, fringilla fringilla mauris. A nam proin risus fringilla risus urna, nisi. Ipsum tortor tellus a, imperdiet etiam etiam ac maecenas felis
               </p>
-              <div class="flex items-center justify-center my-4">
+              <div class="flex items-center justify-center" style="margin: 63px 0">
                 <img
-                  src="/images/coffee-machine-2.png"
+                  src="/images/home/blog-1.png"
                   alt="Bialetti"
                   class="max-h-[250px] object-cover"
                 />
               </div>
-              <p class="uppercase mb-2 font-base font-bold">2. delonghi espresso machine</p>
               <p>
-                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
-                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
-                you can use your own pre-ground beans in the second chamber. In addition to
-                selecting from automatic single or double brewing options, you can also customize
-                the espresso strength, size, temperature to your tastes.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis laoreet sed volutpat pharetra id quis mauris nisi. Et risus aliquam pellentesque neque at et. Sit dui nunc odio porttitor ut rhoncus sit tellus. Sed feugiat eget sed feugiat eget. Viverra arcu felis, eget integer vitae, egestas proin viverra facilisis. Est urna metus vulputate eget metus, fringilla fringilla mauris. A nam proin risus fringilla risus urna, nisi. Ipsum tortor tellus a, imperdiet etiam etiam ac maecenas felis
               </p>
-              <div class="flex items-center justify-center my-4">
-                <img
-                  src="/images/coffee-machine-4.png"
-                  alt="Bialetti"
-                  class="max-h-[250px] object-cover"
-                />
-              </div>
-              <p class="uppercase mb-2 font-base font-bold">3. NESPRESSO espresso machine</p>
-              <p>
-                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
-                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
-                you can use your own pre-ground beans in the second chamber. In addition to
-                selecting from automatic single or double brewing options, you can also customize
-                the espresso strength, size, temperature to your tastes.
-              </p>
-              <div class="flex items-center justify-center my-4">
-                <img
-                  src="/images/coffee-machine-3.png"
-                  alt="Bialetti"
-                  class="max-h-[250px] object-cover"
-                />
-              </div>
             </div>
           `,
   },
   {
     id: 3,
     createdAt: Date.now(),
-    category: 'coffee-machine',
-    title: 'TOP 3 espresso machines 2021',
-    shortDesc:
-      "If you're looking to cut down on visits to your local coffee shop, the best home espresso machines can help you get your coffee right in your own kitchen.",
-    banner: '/images/home/home-blog-2.jpg',
-    author: 'Minh Ngoc',
+    category: 'medicine',
+    title: 'How to teach dogs to live peacefully',
+    shortDesc: 'How to teach dogs to live peacefully',
+    banner: '/images/home/blog-1.png',
+    author: 'Admin',
     content: `
-            <div class="font-poppins text-sm">
+            <div class="text-sm font-neue">
               <p class="mb-4">
-                If you're looking to cut down on visits to your local coffee shop, the best home
-                espresso machines can help you get your latte or cappuccino right in your own
-                kitchen. The best home espresso machines offer much more than a basic brew, they
-                appeal to both newbies and budding baristas looking to take their caffeine devotion
-                to the next level.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis laoreet sed volutpat pharetra id quis mauris nisi. Et risus aliquam pellentesque neque at et. Sit dui nunc odio porttitor ut rhoncus sit tellus. Sed feugiat eget sed feugiat eget. Viverra arcu felis, eget integer vitae, egestas proin viverra facilisis. Est urna metus vulputate eget metus, fringilla fringilla mauris. A nam proin risus fringilla risus urna, nisi. Ipsum tortor tellus a, imperdiet etiam etiam ac maecenas felis.
               </p>
-              <p class="uppercase mb-2 font-base font-bold">1. Bialetti espresso machine</p>
               <p>
-                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
-                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
-                you can use your own pre-ground beans in the second chamber. In addition to
-                selecting from automatic single or double brewing options, you can also customize
-                the espresso strength, size, temperature to your tastes.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis laoreet sed volutpat pharetra id quis mauris nisi. Et risus aliquam pellentesque neque at et. Sit dui nunc odio porttitor ut rhoncus sit tellus. Sed feugiat eget sed feugiat eget. Viverra arcu felis, eget integer vitae, egestas proin viverra facilisis. Est urna metus vulputate eget metus, fringilla fringilla mauris. A nam proin risus fringilla risus urna, nisi. Ipsum tortor tellus a, imperdiet etiam etiam ac maecenas felis
               </p>
-              <div class="flex items-center justify-center my-4">
+              <div class="flex items-center justify-center" style="margin: 63px 0">
                 <img
-                  src="/images/coffee-machine-2.png"
+                  src="/images/home/blog-1.png"
                   alt="Bialetti"
                   class="max-h-[250px] object-cover"
                 />
               </div>
-              <p class="uppercase mb-2 font-base font-bold">2. delonghi espresso machine</p>
               <p>
-                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
-                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
-                you can use your own pre-ground beans in the second chamber. In addition to
-                selecting from automatic single or double brewing options, you can also customize
-                the espresso strength, size, temperature to your tastes.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis laoreet sed volutpat pharetra id quis mauris nisi. Et risus aliquam pellentesque neque at et. Sit dui nunc odio porttitor ut rhoncus sit tellus. Sed feugiat eget sed feugiat eget. Viverra arcu felis, eget integer vitae, egestas proin viverra facilisis. Est urna metus vulputate eget metus, fringilla fringilla mauris. A nam proin risus fringilla risus urna, nisi. Ipsum tortor tellus a, imperdiet etiam etiam ac maecenas felis
               </p>
-              <div class="flex items-center justify-center my-4">
-                <img
-                  src="/images/coffee-machine-4.png"
-                  alt="Bialetti"
-                  class="max-h-[250px] object-cover"
-                />
-              </div>
-              <p class="uppercase mb-2 font-base font-bold">3. NESPRESSO espresso machine</p>
-              <p>
-                You’ll have an espresso, latte, or cappuccino in minutes with De’Longhi’s
-                super-automatic machine. It comes with a built-in burr grinder with 13 settings, or
-                you can use your own pre-ground beans in the second chamber. In addition to
-                selecting from automatic single or double brewing options, you can also customize
-                the espresso strength, size, temperature to your tastes.
-              </p>
-              <div class="flex items-center justify-center my-4">
-                <img
-                  src="/images/coffee-machine-3.png"
-                  alt="Bialetti"
-                  class="max-h-[250px] object-cover"
-                />
-              </div>
             </div>
           `,
   },

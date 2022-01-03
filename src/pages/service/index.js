@@ -1,145 +1,160 @@
 import Layout from 'components/Layout';
-import React from 'react';
-import banner from 'public/images/service/service-banner.png';
-import HomeCategory from 'components/home/HomeCategory';
-import { IconPriceRange } from 'constants/Icons';
 import Link from 'next/link';
+import React from 'react';
 
 const Service = () => {
   return (
     <Layout>
-      <div className="h-[600px] min-h-[600px] w-full relative">
-        <img src={banner} alt="banner" className="h-full w-full object-cover" />
-        <div className="absolute inset-0 w-full h-full bg-[#2B2B3560] z-10 flex items-center justify-center">
-          <p className="text-2xl text-[#F2F2F2] font-bold uppercase">Services</p>
+      <div className="h-[560px] min-h-[560px] w-full relative">
+        <div className="absolute inset-0 w-full h-full bg-yellow-100 flex items-center px-6 md:px-32 xl:px-60 2xl:px-[370px]">
+          <div className="z-10">
+            <p className="text-2xl text-black-100 font-bold capitalize">Service</p>
+            <p className="uppercase text-base font-neue">
+              home // <span className="text-blue-100">Service</span>
+            </p>
+          </div>
+          <img
+            src="/images/products/banner.png"
+            alt="banner"
+            className="max-w-[723px] absolute bottom-0 right-32 hidden md:block"
+          />
         </div>
       </div>
-      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] w-full my-16 md:my-[160px]">
+      <div className="w-full">
         <div className="flex flex-col items-center">
-          <p className="text-lg text-primary">We present to you </p>
-          <p className="text-xl mt-2 font-semibold mb-4">OUR SERVICES</p>
-          <div className="flex items-center justify-between mb-5">
-            <div className="w-[90px] h-[2px] bg-primary mr-1" />
-            <IconPriceRange />
-            <div className="w-[90px] h-[2px] bg-primary ml-1" />
-          </div>
-          <div className="grid md:grid-cols-2 w-full h-1/2 gap-x-5 gap-y-24">
+          <div className="flex justify-around items-center px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] gap-x-14 gap-y-24 py-32">
             <img
-              src="/images/service/service-intro-01.png"
+              src="/images/service/1.png"
               alt="service-01"
-              className="w-full h-full object-cover order-1"
+              className="w-1/2 h-full object-cover order-1 max-w-lg"
+              max-w-lg
             />
-            <div className="order-2">
-              <p className="font-bold text-xl mb-2 uppercase">ONLINE ORDERING</p>
-              <p className="mb-5 font-poppins text-sm">
-                With our Online Ordering Service, you can schedule a regular time and frequency for
-                orders done at your convenience. Your Account Manager will call you at the appointed
-                time to place your order, which we'll deliver at your convenience
+            <div className="w-1/2 order-2">
+              <p className="text-[16px] leading-[25px] tracking-[.3em] text-blue-100 uppercase text-neue">
+                trimming
               </p>
-              <p className="mb-5 font-poppins text-sm">
-                Your Customer Service Representative will also ensure that your needs are being met
-                by monitoring your coffee program and by making themselves available to take any
-                orders required between regular deliveries. This one-on-one service is the perfect
-                solution for anyone who is looking for optimal convenience with a personal touch.
+              <p className="text-lg md:text-2xl font-bold mb-14">A fresh look for your pet</p>
+              <p className="mb-5 text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate
               </p>
-              <p className="mb-5 font-poppins text-sm">
-                Check out our website{' '}
-                <Link href="https://kohi-coffee.vercel.app">
-                  <a className="text-primary active:text-active">https://kohi-coffee.vercel.app</a>
-                </Link>{' '}
-                to take the best products for yourself.
+              <p className="mb-5 text-sm">
+                Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidata
+                non proident, sunt in culpa qui officia deserun mollit anim id est laborum. Sed ut
+                perspiciatis unde omnis iste natus error.
               </p>
               <Link href="/shop">
                 <button
                   type="button"
-                  className="bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out w-[180px] h-12 text-base uppercase"
+                  className="btn-primary transition duration-150 ease-in-out w-[180px] h-12 text-base uppercase"
                 >
                   shop now
                 </button>
               </Link>
             </div>
+          </div>
+          <div className="flex justify-around items-center px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] gap-x-14 gap-y-24 py-32 bg-[#E5E5E5]">
             <img
-              src="/images/service/service-intro-02.png"
+              src="/images/service/2.png"
               alt="service-02"
-              className="w-full h-full object-cover order-3 md:order-4"
+              className="w-1/2 h-full object-cover order-3 md:order-4 max-w-lg"
             />
-            <div className="order-4 md:order-3">
-              <p className="font-bold text-xl mb-2 uppercase">DELIVERY SERVICE</p>
-              <p className="mb-5 font-poppins text-sm">
-                This entirely hands-free coffee solution gives your company the benefit of a
-                dedicated coffee representative who will manage your inventory, clean your
-                equipment, collect payments and modify your program as needed.
+            <div className="w-1/2 order-4 md:order-3">
+              <p className="text-[16px] leading-[25px] tracking-[.3em] text-blue-100 uppercase text-neue">
+                bathe
               </p>
-              <p className="mb-5 font-poppins text-sm">
-                By visiting your location on a regular basis to ensure the quality of your care,
-                your dedicated representative makes your coffee solution a completely worry-free
-                experience.
+              <p className="text-lg md:text-2xl font-bold mb-14">
+                You can't bathe your pet? Don’t worry
               </p>
-              <p className="mb-5 font-poppins text-sm">
-                <span className="text-primary">
-                  *Only available in select cities. May incur in additional fees.
-                </span>
+
+              <p className="mb-5  text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate
               </p>
-              <Link href="/service/request?type=delivery-service">
+              <p className="mb-5 text-sm">
+                Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidata
+                non proident, sunt in culpa qui officia deserun mollit anim id est laborum. Sed ut
+                perspiciatis unde omnis iste natus error.
+              </p>
+              <Link href="/shop">
                 <button
                   type="button"
-                  className="bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out w-[180px] h-12 text-base uppercase"
+                  className="btn-primary transition duration-150 ease-in-out w-[180px] h-12 text-base uppercase"
                 >
-                  Service request
+                  shop now
                 </button>
               </Link>
             </div>
+          </div>
+          <div className="flex justify-around items-center px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] gap-x-14 gap-y-24 py-32">
             <img
-              src="/images/service/service-intro-03.png"
+              src="/images/service/3.png"
               alt="service-03"
-              className="w-full h-full object-cover order-5"
+              className="w-1/2 h-full object-cover order-5"
+              max-w-lg
             />
-            <div className="order-6">
-              <p className="font-bold text-xl mb-2 uppercase">MAINtenance & repair service</p>
-              <p className="mb-5 font-poppins text-sm">
-                Do you have an espresso machine, grinder, water tower, or other coffee machine in
-                need of repair or maintenance? Our experienced technicians would be glad to take a
-                look. Our techs are available to travel within a hundred miles of Louisville,
-                Kentucky. Fill out the form below and our team will get back to you within one
-                business day with next steps.
+            <div className="w-1/2 order-6">
+              <p className="text-[16px] leading-[25px] tracking-[.3em] text-blue-100 uppercase text-neue">
+                health care
               </p>
-              <p className="mb-5 font-poppins text-sm">
-                <b>Note:</b> If your equipment qualifies for warranty (parts or repair), contact the
-                manufacturer or the vendor from whom you purchased the equipment.
+              <p className="text-lg md:text-2xl font-bold mb-14">We care about your pet</p>
+
+              <p className="mb-5  text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate
               </p>
-              <Link href="/service/request?type=maintenance-and-repair-service">
+              <p className="mb-5 text-sm">
+                Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidata
+                non proident, sunt in culpa qui officia deserun mollit anim id est laborum. Sed ut
+                perspiciatis unde omnis iste natus error.
+              </p>
+              <Link href="/shop">
                 <button
                   type="button"
-                  className="bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out w-[180px] h-12 text-base uppercase"
+                  className="btn-primary transition duration-150 ease-in-out w-[180px] h-12 text-base uppercase"
                 >
-                  Service request
+                  shop now
                 </button>
               </Link>
             </div>
+          </div>
+          <div className="flex justify-around items-center px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] gap-x-14 gap-y-24 py-32 bg-[#E5E5E5]">
             <img
-              src="/images/service/service-intro-04.png"
+              src="/images/service/4.png"
               alt="service-04"
-              className="w-full h-full object-cover order-7 md:order-8"
+              className="w-1/2 h-full object-cover order-7 md:order-8 max-w-lg"
             />
-            <div className="order-8 md:order-7">
-              <p className="font-bold text-xl mb-2 uppercase">Return and refund services</p>
-              <p className="mb-5 font-poppins text-sm">
-                Once your return is received and inspected, we will send you an email to notify you
-                that we have received your returned item. If you are approved, then your refund will
-                be processed, and a credit will automatically be applied to the original method of
-                payment, within a certain amount of days.
+            <div className="w-1/2 order-8 md:order-7">
+              <p className="text-[16px] leading-[25px] tracking-[.3em] text-blue-100 uppercase text-neue">
+                hotel
               </p>
-              <p className="mb-5 font-poppins text-sm">
-                Our policy lasts 30 days. If 30 days have gone by since your purchase, unfortunately
-                we can’t offer you a refund or exchange. To be eligible for a return, your item must
-                be unused and in the same condition that you received it.
+              <p className="text-lg md:text-2xl font-bold mb-14">
+                Ah ha! We got your pet when you busy
               </p>
-              <Link href="/service/request?type=return-and-refund-services">
+
+              <p className="mb-5  text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incidid ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate
+              </p>
+              <p className="mb-5 text-sm">
+                Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidata
+                non proident, sunt in culpa qui officia deserun mollit anim id est laborum. Sed ut
+                perspiciatis unde omnis iste natus error.
+              </p>
+              <Link href="/shop">
                 <button
                   type="button"
-                  className="bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out w-[180px] h-12 text-base uppercase"
+                  className="btn-primary transition duration-150 ease-in-out w-[180px] h-12 text-base uppercase"
                 >
-                  Service request
+                  shop now
                 </button>
               </Link>
             </div>

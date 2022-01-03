@@ -17,7 +17,7 @@ const RecentCard = ({ banner, title, category, createdAt, blogId }) => {
           </div>
           <div className="my-2 xl:my-0">
             <p className="text-sm font-bold uppercase">{title}</p>
-            <p className="font-poppins text-disabled my-[10px] text-xs">
+            <p className=" text-disabled my-[10px] text-xs">
               <span className="mr-2">{dayjs(createdAt).format('MMM DD, YYYY')}</span>{' '}
               <span>{categories.filter((cat) => cat.category === category)?.[0]?.name}</span>
             </p>

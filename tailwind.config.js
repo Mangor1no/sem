@@ -13,9 +13,9 @@ module.exports = {
         // => @media (min-width: 1920px) { ... }
       },
       colors: {
-        primary: '#A24936',
+        primary: '#45A7DE',
         disabled: '#B1B1B1',
-        active: '#5E1100',
+        active: '#45A7DE',
         textPrimary: '#2B2B35',
         bgPrimary: '#2B2B35',
         black: {

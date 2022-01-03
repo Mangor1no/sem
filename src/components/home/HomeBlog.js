@@ -7,12 +7,10 @@ import BlogCard from 'components/BlogCard';
 const HomeBlog = () => {
   return (
     <div className="flex flex-col items-center">
-      <p className="text-xl mt-2 font-semibold mb-4 uppercase">From our blog</p>
-      <div className="flex items-center justify-between mb-5">
-        <div className="w-[90px] h-[2px] bg-primary mr-1" />
-        <IconPriceRange />
-        <div className="w-[90px] h-[2px] bg-primary ml-1" />
-      </div>
+      <p className="text-[16px] leading-[25px] tracking-[.3em] text-blue-100 uppercase text-neue">
+        NEW & LATEST
+      </p>
+      <p className="text-lg md:text-2xl font-bold mb-11">Latest Blog</p>
       <div className="grid md:grid-cols-3 w-full h-1/2 gap-5">
         {blogs.slice(0, 3).map((blog) => (
           <Fragment key={blog.id}>

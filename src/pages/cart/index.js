@@ -1,16 +1,16 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable max-lines */
 import Layout from 'components/Layout';
+import { IconClose, IconInformation } from 'constants/Icons';
+import { addToCart, clearUserCart, removeFromCart } from 'data/actions/cart';
+import { categories, clothes, comestic, food, medicine, toy } from 'data/constants';
 import { cartItemSelector } from 'data/selectors/cartSelector';
-import React, { Fragment, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import banner from 'public/images/cart/cart-banner.png';
-import { categories, food, baristaTools, coffeeBeans } from 'data/constants';
-import { IconCart, IconCheckboxCheck, IconClose, IconPaginatePrev } from 'constants/Icons';
-import { clearUserCart, removeFromCart } from 'data/actions/cart';
-import Link from 'next/link';
 import { currentProfileSelector, isAuthSelector } from 'data/selectors/userSelector';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 const bankList = [
   {
@@ -32,7 +32,12 @@ const bankList = [
 ];
 
 const Cart = () => {
-  const deliveryMethod = ['Cash on delivery', 'Credit card', 'Internet banking'];
+  const deliveryMethod = [
+    'DIRECT BANK TRANSFER',
+    'Cash on delivery',
+    'CHECK PAYMENTS',
+    'PAYPAL EXPRESS CHECKOUT',
+  ];
 
   const cartList = useSelector(cartItemSelector);
   const dispatch = useDispatch();
@@ -91,35 +96,6 @@ const Cart = () => {
         if (lastName.length === 0) {
           return setErrors({ lastName: true });
         }
-        if (email.length === 0) {
-          return setErrors({ email: true });
-        }
-        if (phone.length === 0) {
-          return setErrors({ phone: true });
-        }
-        if (city.length === 0) {
-          return setErrors({ city: true });
-        }
-        if (zipCode.length === 0) {
-          return setErrors({ zipCode: true });
-        }
-        if (address.length === 0) {
-          return setErrors({ address: true });
-        }
-        if (selectedDeliveryMethod === deliveryMethod[1]) {
-          if (cardName.length === 0) {
-            return setErrors({ cardName: true });
-          }
-          if (cardNumber.length === 0) {
-            return setErrors({ cardNumber: true });
-          }
-          if (cardExpire.length === 0) {
-            return setErrors({ cardExpire: true });
-          }
-          if (cardCVV.length === 0) {
-            return setErrors({ cardCVV: true });
-          }
-        }
         setErrors(null);
         await dispatch(clearUserCart());
         return handleStep(type);
@@ -138,21 +114,20 @@ const Cart = () => {
     let productImage = null;
     let productName = null;
     let productPrice = null;
-    switch (type) {
-      case categories[0].category: {
-        data = food;
-        break;
-      }
-      case categories[1].category: {
-        data = baristaTools;
-        break;
-      }
-      case categories[2].category: {
-        data = coffeeBeans;
-        break;
-      }
-      default:
-        return null;
+    if (type.toLowerCase() === categories?.[0]?.category) {
+      data = food;
+    }
+    if (type.toLowerCase() === categories?.[1]?.category) {
+      data = clothes;
+    }
+    if (type.toLowerCase() === categories?.[2]?.category) {
+      data = medicine;
+    }
+    if (type.toLowerCase() === categories?.[3]?.category) {
+      data = comestic;
+    }
+    if (type.toLowerCase() === categories?.[4]?.category) {
+      data = toy;
     }
     productName = data.filter((item) => item.id === pId)?.[0]?.name;
     productImage = data.filter((item) => item.id === pId)?.[0]?.image?.[0];
@@ -176,323 +151,325 @@ const Cart = () => {
     return subTotal.toFixed(2) ?? 0;
   };
 
-  const renderProductDetail = (pId, type) => {
-    const { productName, productImage } = getProductDetail(pId, type);
+  const renderProductImage = (pId, type) => {
+    const { productImage, productName } = getProductDetail(pId, type);
     return (
-      <div className="flex items-center">
-        <div
-          className={`hidden ${
-            step === 0 ? 'mr-4 lg:mr-10 xl:mr-16' : 'mr-4'
-          } w-1/3 min-w-[64px] md:px-4 md:py-4 bg-[#F2F2F2] sm:flex items-center justify-center rounded-xl relative overflow-hidden`}
-        >
-          <div className="absolute inset-0 w-full h-full flex items-center justify-center p-8 z-0">
-            <div className="relative w-full h-full">
-              <div className="rounded-full mix-blend-normal filter blur-xl absolute w-3/4 h-3/4 bottom-4 right-[2px] bg-[#14131345]" />
-            </div>
-          </div>
-          <img
-            src={productImage}
-            alt={productName}
-            className="w-full h-full object-cover z-10 transition duration-500 ease-in-out group-hover:scale-110"
-          />
-        </div>
-        <p className="flex-1">{productName}</p>
+      <div className="w-[94px] h-[94px] min-w-[94px] overflow-hidden mx-auto p-3">
+        <img
+          src={productImage}
+          alt={productName}
+          className="w-full h-full object-cover z-10 transition duration-500 ease-in-out hover:scale-110"
+        />
       </div>
     );
+  };
+
+  const renderProductName = (pId, type) => {
+    const { productName } = getProductDetail(pId, type);
+    return <p className="flex-1">{productName}</p>;
+  };
+
+  const handleUpdateData = async (pId, type) => {
+    const product = getProductDetail(pId, type);
+    const finalData = {
+      productId: product?.id,
+      productCategory: product?.category,
+      // quantity: +quantity, // TODO
+      variations: product.variations,
+    };
+    if (!isAuth) {
+      // guestId = 0
+      finalData.userId = 0;
+    } else {
+      finalData.userId = currentProfile.id;
+    }
+    const result = await dispatch(addToCart(finalData));
   };
 
   const renderByStep = () => {
     switch (step) {
       case 0:
         return (
-          <div className="flex items-center justify-between">
-            <div className="flex flex-col overflow-x-auto mb-8">
-              <div className="grid grid-cols-12 gap-x-4 border-b border-gray-400 p-2 justify-items-stretch items-center mb-9 font-semibold">
-                <p className="uppercase col-span-4 md:ml-8">ITEM </p>
-                <p className="uppercase col-span-2 text-center">COLOR </p>
-                <p className="uppercase col-span-2 text-center">QUANTITY</p>
-                <p className="uppercase col-span-2 text-center">Price</p>
-                <p className="uppercase col-span-2 text-center">DELETE</p>
-              </div>
-              <div className="grid grid-cols-12 gap-4 p-2 justify-items-stretch items-center">
-                {cart.map((item, index) => (
-                  <Fragment key={index}>
-                    <p className="uppercase col-span-4">
-                      {renderProductDetail(item.productId, item.productCategory)}
-                    </p>
-                    <p className="uppercase col-span-2 text-center">
-                      <div
-                        style={{ backgroundColor: item.variations }}
-                        className="w-5 h-5 min-w-5 rounded-full mx-auto"
-                      />
-                    </p>
-                    <p className="col-span-2 text-center">x{item.quantity}</p>
-                    <p className="uppercase col-span-2 text-center">
-                      ${renderProductPrice(item.productId, item.productCategory)}
-                    </p>
-                    <div className="uppercase col-span-2 flex items-center justify-center">
-                      <button type="button" onClick={() => handleRemoveItem(item)}>
-                        <IconClose size={16} />
-                      </button>
-                    </div>
-                  </Fragment>
-                ))}
-              </div>
+          <div className="flex items-center justify-between w-full">
+            <div className="flex flex-col overflow-x-auto mb-8 w-full">
+              <table>
+                <tbody>
+                  <tr>
+                    <td className="p-4">
+                      <div className="mx-auto w-[68px] max-w-[68px] min-w-[68px]">&nbsp;</div>
+                    </td>
+                    <td className="p-4">
+                      <div className="mx-auto">&nbsp;</div>
+                    </td>
+                    <td className="p-4 uppercase font-bold">
+                      <div className="mx-auto w-[250px] max-w-[520px] min-w-[250px]">product</div>
+                    </td>
+                    <td className="p-4 uppercase font-bold">
+                      <div className="mx-auto w-[130px] max-w-[130px] min-w-[130px]">price</div>
+                    </td>
+                    <td className="p-4 uppercase font-bold">
+                      <div className="mx-auto w-[163px] max-w-[163px] min-w-[163px]">quantity</div>
+                    </td>
+                    <td className="p-4 uppercase font-bold">
+                      <div className="mx-auto w-[140px] max-w-[140px] min-w-[140px]">total</div>
+                    </td>
+                  </tr>
+                  {cart.map((item, index) => (
+                    <tr key={index}>
+                      <td>
+                        <button type="button" onClick={() => handleRemoveItem(item)}>
+                          <IconClose size={10} />
+                        </button>
+                      </td>
+                      <td>{renderProductImage(item.productId, item.productCategory)}</td>
+                      <td>{renderProductName(item.productId, item.productCategory)}</td>
+                      <td>${renderProductPrice(item.productId, item.productCategory)}</td>
+                      <td>
+                        <p className="col-span-2 text-center">x{item.quantity}</p>
+                      </td>
+                      <td>
+                        ${renderProductPrice(item.productId, item.productCategory) * item.quantity}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         );
       case 1:
         return (
-          <div className="flex flex-col md:flex-row justify-between">
-            <div className="w-full md:w-1/2 mr-8 h-full">
-              <div className="mb-24">
-                <p className="uppercase text-base mb-5">Delivery address</p>
-                <div className="grid grid-cols-2 gap-x-5 gap-y-4 font-poppins">
-                  <div>
-                    <p className="text-xs text-[#7F7F7F] mb-2">First name</p>
-                    <input
-                      type="text"
-                      className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
-                      value={firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
-                    />
-                    {errors?.firstName && (
-                      <p className="text-xs text-red-600 mt-1">First name is required</p>
-                    )}
-                  </div>
-                  <div>
-                    <p className="text-xs text-[#7F7F7F] mb-2">Last name</p>
-                    <input
-                      type="text"
-                      className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
-                      value={lastName}
-                      onChange={(e) => setLastName(e.target.value)}
-                    />
-                    {errors?.lastName && (
-                      <p className="text-xs text-red-600 mt-1">Last name is required</p>
-                    )}
-                  </div>
-                  <div>
-                    <p className="text-xs text-[#7F7F7F] mb-2">Email</p>
-                    <input
-                      type="text"
-                      className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                    {errors?.email && (
-                      <p className="text-xs text-red-600 mt-1">Email is required</p>
-                    )}
-                  </div>
-                  <div>
-                    <p className="text-xs text-[#7F7F7F] mb-2">Phone number</p>
-                    <input
-                      type="text"
-                      className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                    />
-                    {errors?.phone && (
-                      <p className="text-xs text-red-600 mt-1">Phone number is required</p>
-                    )}
-                  </div>
-                  <div>
-                    <p className="text-xs text-[#7F7F7F] mb-2">Town/City</p>
-                    <input
-                      type="text"
-                      className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
-                      value={city}
-                      onChange={(e) => setCity(e.target.value)}
-                    />
-                    {errors?.city && <p className="text-xs text-red-600 mt-1">City is required</p>}
-                  </div>
-                  <div>
-                    <p className="text-xs text-[#7F7F7F] mb-2">Zip code</p>
-                    <input
-                      type="text"
-                      className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
-                      value={zipCode}
-                      onChange={(e) => setZipCode(e.target.value)}
-                    />
-                    {errors?.zipCode && (
-                      <p className="text-xs text-red-600 mt-1">Zip code is required</p>
-                    )}
-                  </div>
-                  <div className="col-span-2">
-                    <p className="text-xs text-[#7F7F7F] mb-2">Address</p>
-                    <input
-                      type="text"
-                      className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
-                      value={address}
-                      onChange={(e) => setAddress(e.target.value)}
-                    />
-                    {errors?.address && (
-                      <p className="text-xs text-red-600 mt-1">Address is required</p>
-                    )}
-                  </div>
-                  <div className="col-span-2">
-                    <p className="text-xs text-[#7F7F7F] mb-2">Additonal information (optional)</p>
-                    <textarea
-                      className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
-                      rows="4"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <p className="uppercase text-bas mb-5">Payment method</p>
-                <div className="w-full font-poppins">
-                  <ul className="">
-                    {deliveryMethod.map((method, index) => (
-                      <>
-                        <li
-                          key={method}
-                          className={`flex items-center ${
-                            index === deliveryMethod.length - 1 ||
-                            (selectedDeliveryMethod === deliveryMethod[1] && index === 1)
-                              ? ''
-                              : 'mb-4'
-                          }`}
-                        >
-                          <div className="relative flex items-center justify-center">
-                            <input
-                              type="radio"
-                              id={method}
-                              name="deliveryMethod"
-                              className="appearance-none w-6 h-6 min-w-6 border border-bgPrimary checked:border-primary checked:bg-primary mr-2 cursor-pointer rounded-[3px]"
-                              onChange={handleDeliveryMethod(method)}
-                              checked={selectedDeliveryMethod?.includes(method)}
-                            />
-                            <div className="absolute left-[7px]">
-                              <IconCheckboxCheck />
-                            </div>
-                          </div>
-                          <label htmlFor={method} className="cursor-pointer w-full text-sm">
-                            {method}
-                          </label>
-                        </li>
-                        {selectedDeliveryMethod === deliveryMethod[1] && index === 1 && (
-                          <div className="my-4">
-                            <div className="grid grid-cols-1 gap-x-5 gap-y-4 font-poppins">
-                              <div>
-                                <p className="text-xs text-[#7F7F7F] mb-2">Name on card</p>
-                                <input
-                                  type="text"
-                                  className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
-                                  value={cardName}
-                                  onChange={(e) => setCardName(e.target.value)}
-                                />
-                                {errors?.cardName && (
-                                  <p className="text-xs text-red-600 mt-1">
-                                    Name on card is required
-                                  </p>
-                                )}
-                              </div>
-                              <div>
-                                <p className="text-xs text-[#7F7F7F] mb-2">Card number</p>
-                                <input
-                                  type="text"
-                                  className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
-                                  value={cardNumber}
-                                  onChange={(e) => setCardNumber(e.target.value)}
-                                />
-                                {errors?.cardNumber && (
-                                  <p className="text-xs text-red-600 mt-1">
-                                    Card number is required
-                                  </p>
-                                )}
-                              </div>
-                              <div>
-                                <p className="text-xs text-[#7F7F7F] mb-2">Expiration date</p>
-                                <input
-                                  type="text"
-                                  className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
-                                  value={cardExpire}
-                                  onChange={(e) => setCardExpire(e.target.value)}
-                                />
-                                {errors?.cardExpire && (
-                                  <p className="text-xs text-red-600 mt-1">
-                                    Expiration date is required
-                                  </p>
-                                )}
-                              </div>
-                              <div>
-                                <p className="text-xs text-[#7F7F7F] mb-2">Security code</p>
-                                <input
-                                  type="text"
-                                  className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
-                                  value={cardCVV}
-                                  onChange={(e) => setCardCVV(e.target.value)}
-                                />
-                                {errors?.cardCVV && (
-                                  <p className="text-xs text-red-600 mt-1">
-                                    Security code is required
-                                  </p>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                        {selectedDeliveryMethod === deliveryMethod[2] && index === 2 && (
-                          <div className="flex items-center justify-between mt-5">
-                            {bankList.map((bank) => (
-                              <label htmlFor={bank.name} key={bank.name} className="inline-block">
-                                <input
-                                  type="radio"
-                                  name="bank"
-                                  value={bank.name}
-                                  className="hidden"
-                                  checked={selectedBank.includes(bank.name)}
-                                />
-                                <img
-                                  src={bank.logo}
-                                  alt={bank.name}
-                                  onClick={() => setSelectedBank(bank.name)}
-                                  className={`
-                                    ${
-                                      selectedBank.includes(bank.name)
-                                        ? 'ring-2 ring-offset-2 ring-primary'
-                                        : ''
-                                    } rounded-sm h-7 object-cover cursor-pointer`}
-                                />
-                              </label>
-                            ))}
-                          </div>
-                        )}
-                      </>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+          <>
+            <div className="bg-[#ECECEF] py-4 px-5 flex items-center space-x-3 font-neue text-sm mb-[77px]">
+              <span>
+                <IconInformation />
+              </span>
+              <span>Have a Coupon? Click here to enter your code</span>
             </div>
-            <div className="w-full md:w-1/2 md:ml-8 flex flex-col overflow-x-auto mb-8">
-              <div className="grid grid-cols-12 gap-x-4 border-b border-gray-400 p-2 justify-items-stretch items-center mb-9 font-semibold">
-                <p className="uppercase col-span-6 md:ml-8">ITEM </p>
-                <p className="uppercase col-span-2 text-center">COLOR </p>
-                <p className="uppercase col-span-2 text-center">QUANTITY</p>
-                <p className="uppercase col-span-2 text-center">Price</p>
-              </div>
-              <div className="grid grid-cols-12 gap-4 p-2 justify-items-stretch items-center">
-                {cart.map((item, index) => (
-                  <Fragment key={index}>
-                    <p className="uppercase col-span-6">
-                      {renderProductDetail(item.productId, item.productCategory)}
-                    </p>
-                    <p className="uppercase col-span-2 text-center">
-                      <div
-                        style={{ backgroundColor: item.variations }}
-                        className="w-5 h-5 min-w-5 rounded-full mx-auto"
+            <div className="flex flex-col md:flex-row justify-between">
+              <div className="w-full md:w-1/2 mr-8 h-full">
+                <div className="">
+                  <div className="mb-8">
+                    <p className="font-bold text-base">Billing details</p>
+                    <div className="h-[2px] w-[51px] bg-[#000000]" />
+                  </div>
+                  <div className="grid grid-cols-2 gap-x-5 gap-y-5 mb-5">
+                    <div>
+                      <p className="font-neue mb-2">
+                        First name<span className="text-red-600">*</span>
+                      </p>
+                      <input
+                        type="text"
+                        className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
                       />
-                    </p>
-                    <p className="col-span-2 text-center">x{item.quantity}</p>
-                    <p className="uppercase col-span-2 text-center">
-                      ${renderProductPrice(item.productId, item.productCategory)}
-                    </p>
-                  </Fragment>
-                ))}
+                      {errors?.firstName && (
+                        <p className="font-neue text-red-600 mt-1">First name is required</p>
+                      )}
+                    </div>
+                    <div>
+                      <p className="font-neue mb-2">
+                        Last name<span className="text-red-600">*</span>
+                      </p>
+                      <input
+                        type="text"
+                        className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                      />
+                      {errors?.lastName && (
+                        <p className="font-neue text-red-600 mt-1">Last name is required</p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex flex-col space-y-5">
+                    <div>
+                      <p className="font-neue mb-2">Company name (optional)</p>
+                      <input
+                        type="text"
+                        className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-neue mb-2">
+                        Country<span className="text-red-600">*</span>
+                      </p>
+                      <input
+                        type="text"
+                        className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
+                        defaultValue="Vietnam"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-neue mb-2">
+                        Street address<span className="text-red-600">*</span>
+                      </p>
+                      <input
+                        type="text"
+                        className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none mb-5"
+                        placeholder="House number and street name"
+                      />
+                      <input
+                        type="text"
+                        className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
+                        placeholder="Apartmemt, suite, unti etc. (optional)"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-neue mb-2">
+                        Town/City<span className="text-red-600">*</span>
+                      </p>
+                      <input
+                        type="text"
+                        className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
+                        value={city}
+                        onChange={(e) => setCity(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <p className="font-neue mb-2">
+                        District<span className="text-red-600">*</span>
+                      </p>
+                      <input
+                        type="text"
+                        className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-neue mb-2">Postcode / ZIP (optional)</p>
+                      <input
+                        type="text"
+                        className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
+                        value={zipCode}
+                        onChange={(e) => setZipCode(e.target.value)}
+                      />
+                    </div>
+                    <div className="col-span-2">
+                      <p className="font-neue mb-2">Order notes (optional)</p>
+                      <textarea
+                        className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
+                        rows="4"
+                        placeholder="Notes about your order, e.g. special notes for delivery."
+                      />
+                    </div>
+                    <div>
+                      <p className="font-neue mb-2">Phone (optional)</p>
+                      <input
+                        type="text"
+                        className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <p className="font-neue mb-2">
+                        Email<span className="text-red-600">*</span>
+                      </p>
+                      <input
+                        type="text"
+                        className="w-full border border-disabled px-2 py-2 text-sm focus:outline-none"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2 my-6">
+                  <input type="checkbox" name="diffAddress" id="diffAddress" />
+                  <label htmlFor="diffAddress">Ship to a different address?</label>
+                </div>
+              </div>
+              <div className="w-full md:w-1/2 md:ml-8 flex flex-col overflow-x-auto mb-8 border-2 border-[#9D9D9D] px-[52px] py-[50px] text-sm font-neue">
+                <div className="mb-8">
+                  <p className="font-bold text-base font-nunito">Your order</p>
+                  <div className="h-[2px] w-[51px] bg-[#000000]" />
+                </div>
+                <div className="flex items-center justify-between pb-[10px] border-b border-[#C9C9C9]">
+                  <p>Product</p>
+                  <p>Total</p>
+                </div>
+                <div className="border-b border-[#C9C9C9] space-y-[10px] pt-6 pb-[30px]">
+                  {cart.map((item, index) => (
+                    <div className="flex items-center justify-between" key={index}>
+                      <div className="flex items-center space-x-1">
+                        <span>{renderProductName(item.productId, item.productCategory)}</span>{' '}
+                        <span>x {item.quantity}</span>
+                      </div>
+                      <div>${renderProductPrice(item.productId, item.productCategory)}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between pb-[10px] border-b border-[#C9C9C9] pt-3">
+                  <p>Subtotal</p>
+                  <p>${renderSubTotal()}</p>
+                </div>
+                <div className="flex items-center justify-between pb-[10px] border-b border-[#C9C9C9] pt-3">
+                  <p>Shipping</p>
+                  <p>Flat rate: $2</p>
+                </div>
+                <div className="flex items-center justify-between pb-[10px] border-b border-[#C9C9C9] pt-3">
+                  <p>Total</p>
+                  <p>${+renderSubTotal() + 2}</p>
+                </div>
+                <div>
+                  <p className="uppercase text-bas mb-5">Payment method</p>
+                  <div className="w-full ">
+                    <ul className="">
+                      {deliveryMethod.map((method, index) => (
+                        <>
+                          <li key={method} className="flex items-center mb-2">
+                            <div className="relative flex items-center justify-center">
+                              <input
+                                type="radio"
+                                id={method}
+                                name="deliveryMethod"
+                                className="mr-2"
+                                onChange={handleDeliveryMethod(method)}
+                                checked={selectedDeliveryMethod?.includes(method)}
+                              />
+                            </div>
+                            <label
+                              htmlFor={method}
+                              className="cursor-pointer w-full text-black-50 uppercase"
+                            >
+                              {method}
+                            </label>
+                          </li>
+                          {selectedDeliveryMethod === deliveryMethod[0] && index === 0 && (
+                            <p className="text-black-50 mt-[6px] mb-8">
+                              Make your payment directly into our bank account. Please use your
+                              Order ID as the payment reference. Your order will not be shipped
+                              until the funds have cleared in our account.
+                            </p>
+                          )}
+                        </>
+                      ))}
+                    </ul>
+                  </div>
+                  <p className="text-black-50">
+                    Your personal data will be used to process your order, support your experience
+                    throughout this website, and for other purposes described in our{' '}
+                    <span className="text-blue-50">privacy policy</span>
+                  </p>
+                </div>
+                <div className="flex items-baseline space-x-2 my-6 mb-16">
+                  <input type="checkbox" name="agreement" id="agreement" />
+                  <label htmlFor="agreement">
+                    I have read and agree to the tic tic website terms and conditions
+                    <span className="text-red-600">*</span>
+                  </label>
+                </div>
+                <button
+                  type="button"
+                  className="btn-secondary transition duration-150 ease-in-out uppercase px-[50px] py-[10px] w-2/3 mx-auto"
+                  onClick={() => handleCheckout('forward')}
+                >
+                  <span>Place order</span>
+                </button>
               </div>
             </div>
-          </div>
+          </>
         );
 
       default:
@@ -502,28 +479,29 @@ const Cart = () => {
 
   return (
     <Layout>
-      <div className="h-[500px] min-h-[500px] w-full relative">
-        <img src={banner} alt="banner" className="h-full w-full object-cover" />
-        <div className="absolute inset-0 w-full h-full bg-[#2B2B3560] z-10 flex items-center justify-center">
-          <p className="text-2xl text-[#F2F2F2] font-bold uppercase">my cart</p>
+      <div className="h-[600px] min-h-[600px] w-full relative">
+        <div className="absolute inset-0 w-full h-full bg-yellow-100 flex items-center px-6 md:px-32 xl:px-60 2xl:px-[370px]">
+          <div className="z-10">
+            <p className="text-2xl text-black-100 font-bold capitalize">Cart</p>
+            <p className="uppercase text-base font-neue">
+              home // <span className="text-blue-100">Cart</span>
+            </p>
+          </div>
+          <img
+            src="/images/products/banner.png"
+            alt="banner"
+            className="max-w-[723px] absolute bottom-0 right-32 hidden md:block"
+          />
         </div>
       </div>
-      <div
-        className={`my-24 ${
-          step < 2
-            ? 'max-w-[1400px] md:px-14 py-16 bg-white mx-6 lg:mx-16 xl:mx-48 2xl:mx-64'
-            : 'mx-auto'
-        } rounded-md`}
-        style={{ boxShadow: '6px 12px 61px rgba(43, 43, 53, 0.05)' }}
-      >
+      <div className="py-16 px-6 lg:px-32 xl:px-60 3xl:px-[370px]">
         {cart.length === 0 && step === 0 ? (
-          <div className="flex flex-col items-center justify-center">
-            <IconCart size={200} />
-            <p className="font-poppins my-6 text-primary">Your cart is empty for now...</p>
+          <div className="flex flex-col items-center justify-center py-60">
+            <p className="text-xl my-6 text-blue-100">Your cart is empty for now...</p>
             <Link href="/shop">
               <button
                 type="button"
-                className="bg-primary text-[#F2F2F2] uppercase w-1/2 py-[10px] rounded-md"
+                className="btn-primary text-[#F2F2F2] uppercase w-1/2 py-[10px] rounded-md"
               >
                 <span>Continue shopping</span>
               </button>
@@ -532,94 +510,69 @@ const Cart = () => {
         ) : (
           <>
             {renderByStep()}
-            <div className="flex flex-col md:flex-row items-end justify-between">
-              {step === 0 ? (
-                <Link href="/shop">
-                  <button
-                    type="button"
-                    className="uppercase text-base text-primary order-last md:order-first mx-auto md:mx-0 mt-6 md:mt-0 flex items-center flex-1"
-                  >
-                    <IconPaginatePrev active />
-                    <span className="ml-4">Continue shopping</span>
-                  </button>
-                </Link>
-              ) : (
-                step === 1 && (
-                  <button
-                    type="button"
-                    className="uppercase text-base text-primary order-last md:order-first mx-auto md:mx-0 mt-6 md:mt-0 flex items-center flex-1"
-                    onClick={() => handleCheckout('back')}
-                  >
-                    <IconPaginatePrev active />
-                    <span className="ml-4">Back</span>
-                  </button>
-                )
-              )}
+            <div
+              className={`flex flex-col md:flex-row items-end ${
+                step === 2 ? 'justify-center' : 'justify-end'
+              }`}
+            >
               {step === 2 ? (
                 <div className="pt-16">
-                  <div className="px-8 font-poppins">
-                    <p className="font-oswald uppercase text-lg text-center font-bold">
-                      Your order is completed
+                  <div className="px-8 mb-[77px]">
+                    <p className="text-2xl md:text-[96px] md:leading-[130px] text-center font-bold mb-5">
+                      Thank you
                     </p>
-                    <div className="w-full grid grid-cols-2 mt-4 mb-16 gap-2 mx-auto max-w-[260px] text-sm">
-                      <p className="font-semibold">Estimated delivery date:</p>
-                      <p className="text-right text-primary">1/9 - 3/9</p>
-                      <p className="font-semibold">Time delivery:</p>
-                      <p className="text-right text-primary">7h30 - 12h30</p>
-                      <p className="font-semibold">Payment:</p>
-                      <p className="text-right text-primary">{selectedDeliveryMethod}</p>
-                    </div>
+                    <p className="text-lg md:text-2xl text-center font-bold mb-8">
+                      Your orders was completed successfully
+                    </p>
+                    <p className="text-center">
+                      You will receive an email and a phone call to confirm your orders very
+                      quickly, so keep it touch with us!
+                    </p>
                   </div>
-                  <p className="max-w-[360px] text-center mb-52 mx-8">
-                    We will call you back to confirm your order again, thank you for your purchase
-                    and support our store.
-                  </p>
-                  <Link href="/shop">
-                    <a
-                      type="button"
-                      className="bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out uppercase w-full py-[10px] rounded-b-md text-center"
-                    >
-                      <span>Back to shop</span>
-                    </a>
-                  </Link>
+                  <div className="flex flex-col items-center space-y-[33px]">
+                    <Link href="/shop">
+                      <a
+                        type="button"
+                        className="btn-secondary transition duration-150 ease-in-out uppercase px-[43px] py-[10px] text-center w-max"
+                      >
+                        <span>BACK TO SHOPPING</span>
+                      </a>
+                    </Link>
+                    <Link href="/profile">
+                      <a
+                        type="button"
+                        className="btn-primary transition duration-150 ease-in-out uppercase px-[43px] py-[10px] text-center w-max"
+                      >
+                        <span>VIEW YOUR ORDERS</span>
+                      </a>
+                    </Link>
+                  </div>
+                  <img src="/images/cart/1.png" alt="1" className="max-w-[760px] mx-auto" />
                 </div>
-              ) : (
+              ) : step === 0 ? (
                 <div className="w-full md:max-w-[530px] flex-1">
-                  <div className="bg-[#F2F2F2] rounded-md w-full p-4 pb-6">
-                    <p className="text-base uppercase">Order summary</p>
-                    <div className="grid grid-cols-2">
-                      <p className="font-poppins text-sm">Item total:</p>
-                      <p className="text-right">{cart.length}</p>
-                      <p className="font-poppins text-sm">Shipping:</p>
-                      <p className="text-right">$5</p>
-                      <p className="font-poppins text-sm">Subtotal:</p>
-                      <p className="text-right">${renderSubTotal()}</p>
-                    </div>
-                    <div className="grid grid-cols-2 mt-12">
-                      <p className="text-base uppercase">Total</p>
-                      <p className="text-right">${(+renderSubTotal() + 5).toFixed(2)}</p>
-                    </div>
-                  </div>
-                  {isAuth ? (
-                    <button
-                      type="button"
-                      className="bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out uppercase w-full py-[10px] rounded-b-md"
-                      onClick={() => handleCheckout('forward')}
-                    >
-                      <span>Checkout</span>
-                    </button>
-                  ) : (
-                    <Link href="/auth">
+                  <div className="flex items-center justify-end pt-8">
+                    {isAuth ? (
                       <button
                         type="button"
-                        className="bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out uppercase w-full py-[10px] rounded-b-md"
+                        className="btn-secondary transition duration-150 ease-in-out uppercase px-[50px] py-[10px] w-max"
+                        onClick={() => handleCheckout('forward')}
                       >
-                        <span>Sign in to continue</span>
+                        <span>Place to order</span>
                       </button>
-                    </Link>
-                  )}
+                    ) : (
+                      <Link href="/auth">
+                        <button
+                          type="button"
+                          className="btn-secondary w-max transition duration-150 ease-in-out uppercase px-[50px] py-[10px]"
+                        >
+                          <span>Sign in to continue</span>
+                        </button>
+                      </Link>
+                    )}
+                  </div>
                 </div>
-              )}
+              ) : null}
             </div>
           </>
         )}

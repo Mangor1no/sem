@@ -32,7 +32,6 @@ const ServiceRequest = () => {
 
   return (
     <Layout>
-      <ToastContainer />
       <div className="h-[400px] min-h-[400px] w-full relative">
         <img src={banner} alt="banner" className="h-full w-full object-cover" />
         <div className="absolute inset-0 w-full h-full bg-[#2B2B3560] z-10 flex items-center justify-center">
@@ -50,7 +49,7 @@ const ServiceRequest = () => {
             <div className="w-[90px] h-[2px] bg-primary ml-1" />
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-x-5 gap-y-4 max-w-[672px] mx-auto px-4 font-poppins">
+        <div className="grid grid-cols-2 gap-x-5 gap-y-4 max-w-[672px] mx-auto px-4 ">
           <div>
             <p className="text-xs text-[#7F7F7F] mb-2">Contact name</p>
             <input
@@ -125,7 +124,7 @@ const ServiceRequest = () => {
           </div>
           <button
             type="button"
-            className="col-span-full font-oswald bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out uppercase px-4 py-3 mt-12"
+            className="col-span-full bg-primary text-white border border-primary hover:text-primary hover:bg-[#F2F2F2] active:bg-active active:border-active active:text-white transition duration-150 ease-in-out uppercase px-4 py-3 mt-12"
             onClick={handleSendRequest}
           >
             Book now

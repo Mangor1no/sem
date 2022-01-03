@@ -47,12 +47,11 @@ const wishlistReducer = (state = initialState, { type, payload }) => {
         isFetching: true,
       };
     case TYPES.REMOVE_FROM_WISHLIST_SUCCESS:
+      console.log(payload, state.data);
       return {
         ...state,
         isFetching: false,
-        data: state.data.filter(
-          (item) => item.productId !== payload.productId || item.variations !== payload.variations
-        ),
+        data: state.data.filter((item) => item.id !== payload.id),
       };
     case TYPES.REMOVE_FROM_WISHLIST_FAILURE:
       return {

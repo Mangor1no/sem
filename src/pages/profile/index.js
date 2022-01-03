@@ -1,38 +1,29 @@
 /* eslint-disable max-lines */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import Layout from 'components/Layout';
-import React, { useEffect, useState } from 'react';
 import { createAvatar } from '@dicebear/avatars';
 import * as style from '@dicebear/micah';
-import { useDispatch, useSelector } from 'react-redux';
+import { Transition } from '@headlessui/react';
+import Layout from 'components/Layout';
+import Product from 'components/shop/Product';
+import Support from 'components/Support';
+import { IconChangeAvatar, IconCheckboxCheck, IconWishlist } from 'constants/Icons';
+import { changeUserInfo, changeUserPassword, signOut } from 'data/actions/users';
 import {
   currentProfileSelector,
   isAuthSelector,
   profileDataSelector,
 } from 'data/selectors/userSelector';
-import {
-  IconChangeAvatar,
-  IconCheckboxCheck,
-  IconDiscount,
-  IconNotification,
-  IconPassword,
-  IconUser,
-  IconWishlist,
-  IconWishlistFill,
-} from 'constants/Icons';
-import { changeUserInfo, changeUserPassword } from 'data/actions/users';
-import { Slide, toast, ToastContainer } from 'react-toastify';
-import { validateEmail } from 'utils/helpers';
-import NumberFormat from 'react-number-format';
-import { useRouter } from 'next/router';
-import { food } from 'data/constants';
-import { Transition } from '@headlessui/react';
-import Product from 'components/shop/Product';
 import { wishlistSelector } from 'data/selectors/wishlistSelector';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+import NumberFormat from 'react-number-format';
+import { useDispatch, useSelector } from 'react-redux';
+import { Slide, toast } from 'react-toastify';
+import { validateEmail } from 'utils/helpers';
 
 const Account = () => {
-  const tabs = ['information', 'password', 'wishlist', 'discount', 'notification'];
+  const tabs = ['overview', 'orders', 'payment method', 'address', 'Account Details', 'Logout'];
 
   const router = useRouter();
 
@@ -154,12 +145,30 @@ const Account = () => {
     }
   };
 
+  const handleSignOut = async () => {
+    await dispatch(signOut());
+    router.push('/');
+  };
+
   const renderProfile = () => {
     switch (activeTab) {
       case tabs[0]:
         return (
           <>
-            <div className="flex items-center mb-14">
+            <p>Overview</p>
+            <p>
+              Hello, <span className="text-blue-100">{currentProfile.username}</span> (If Not{' '}
+              <span className="text-blue-100">{currentProfile.username}</span>?{' '}
+              <button type="button" onClick={handleSignOut}>
+                Logout
+              </button>
+              )
+            </p>
+            <p>
+              From your account dashboard. you can easily check & view your recent orders, manage
+              your shipping and billing addresses and edit your password and account details.
+            </p>
+            {/* <div className="flex items-center mb-14">
               <div className="flex items-center justify-center bg-purple-300 rounded-full w-[150px] h-[150px] relative">
                 <div dangerouslySetInnerHTML={{ __html: avatar }} />
                 <div className="absolute top-3 right-3">
@@ -170,7 +179,7 @@ const Account = () => {
                 {currentProfileData?.fname} {currentProfileData?.lname}
               </p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full md:w-1/2 font-poppins mb-16">
+            <div className="">
               <div>
                 <p className="text-xs mb-2">First Name</p>
                 <input
@@ -256,17 +265,57 @@ const Account = () => {
             </div>
             <button
               type="button"
-              className="bg-primary px-6 py-3 font-bold font-poppins text-white text-sm"
+              className="bg-primary px-6 py-3 font-bold  text-white text-sm"
               onClick={handleChangeUserInfo}
             >
               Save changes
-            </button>
+            </button> */}
           </>
         );
       case tabs[1]:
         return (
-          <>
-            <div className="flex items-center mb-14">
+          <div className="overflow-x-auto">
+            <p>Orders</p>
+            <table className="font-neue">
+              <tbody>
+                <tr>
+                  <td className="px-[38px] py-4">Order</td>
+                  <td className="px-[101px]">Date</td>
+                  <td className="px-[83px]">Status</td>
+                  <td className="px-[40px]">Total</td>
+                  <td className="px-[35px]">Action</td>
+                </tr>
+                <tr className="text-sm">
+                  <td className="py-5 text-black-50">1</td>
+                  <td className="text-black-50">Aug 24, 2021</td>
+                  <td className="text-black-50">Approved</td>
+                  <td className="text-black-50">$3000</td>
+                  <td className="text-black-50">View</td>
+                </tr>
+                <tr className="text-sm">
+                  <td className="py-5 text-black-50">2</td>
+                  <td className="text-black-50">Aug 23, 2021</td>
+                  <td className="text-black-50">Pending</td>
+                  <td className="text-black-50">$200</td>
+                  <td className="text-black-50">View</td>
+                </tr>
+                <tr className="text-sm">
+                  <td className="py-5 text-black-50">3</td>
+                  <td className="text-black-50">Aug 12, 2021</td>
+                  <td className="text-black-50">On Hold</td>
+                  <td className="text-black-50">$420</td>
+                  <td className="text-black-50">View</td>
+                </tr>
+                <tr className="text-sm">
+                  <td className="py-5 text-black-50">4</td>
+                  <td className="text-black-50">June 12, 2021</td>
+                  <td className="text-black-50">Approved</td>
+                  <td className="text-black-50">$990</td>
+                  <td className="text-black-50">View</td>
+                </tr>
+              </tbody>
+            </table>
+            {/* <div className="flex items-center mb-14">
               <div className="flex items-center justify-center bg-purple-300 rounded-full w-[150px] h-[150px] relative">
                 <div dangerouslySetInnerHTML={{ __html: avatar }} />
                 <div className="absolute top-3 right-3">
@@ -277,7 +326,7 @@ const Account = () => {
                 {currentProfileData?.fname} {currentProfileData?.lname}
               </p>
             </div>
-            <div className="grid grid-cols-1 gap-8 w-full md:w-1/2 font-poppins mb-16">
+            <div className="grid grid-cols-1 gap-8 w-full md:w-1/2  mb-16">
               <div>
                 <p className="text-xs mb-2">Old Password</p>
                 <input
@@ -325,17 +374,17 @@ const Account = () => {
             </div>
             <button
               type="button"
-              className="bg-primary px-6 py-3 font-bold font-poppins text-white text-sm"
+              className="bg-primary px-6 py-3 font-bold  text-white text-sm"
               onClick={handleChangeUserPassword}
             >
               Confirm
-            </button>
-          </>
+            </button> */}
+          </div>
         );
       case tabs[2]:
         return (
           <>
-            <p className="uppercase flex items-center mb-5">
+            {/* <p className="uppercase flex items-center mb-5">
               <span>My Wishlist</span>
               <span className="ml-2">
                 <IconWishlist />
@@ -357,13 +406,13 @@ const Account = () => {
                   <Product product={product} />
                 </Transition>
               ))}
-            </div>
+            </div> */}
           </>
         );
-      case tabs[4]:
+      case tabs[3]:
         return (
-          <div className="font-poppins">
-            <div className="flex items-center justify-between font-semibold text-base border-b-2 border-[#C4C4C475] py-3">
+          <div className="">
+            {/* <div className="flex items-center justify-between font-semibold text-base border-b-2 border-[#C4C4C475] py-3">
               <p className="uppercase">Notifications</p>
               <button type="button" className="text-primary" onClick={handleToggleAllNoti}>
                 Turn on all
@@ -428,7 +477,7 @@ const Account = () => {
                   <span>Get a reply on your review and question from anyone</span>
                 </div>
               </label>
-            </div>
+            </div> */}
           </div>
         );
       default:
@@ -440,69 +489,68 @@ const Account = () => {
 
   return (
     <Layout>
-      <div className="mt-20">
-        <ToastContainer />
-        <div className="grid grid-cols-12 bg-white">
-          <div className="border-r border-[#F2F2F2] justify-self-end w-full md:w-min col-span-3 md:col-span-4">
-            <ul className="mt-20 -mr-px font-poppins">
-              <li className="text-lg uppercase font-semibold mb-6 pr-4 md:pr-11 font-oswald hidden md:block">
-                Profile
-              </li>
-              <li
-                onClick={() => setActiveTab(tabs[0])}
-                className={`mb-7 pr-4 md:pr-11 flex items-center justify-center md:justify-start cursor-pointer border-primary ${
-                  activeTab === tabs[0] ? 'border-r-2' : ''
-                }`}
-              >
-                <IconUser color="#B1B1B1" />
-                <span className="ml-5 hidden md:block">Information</span>
-              </li>
-              <li
-                onClick={() => setActiveTab(tabs[1])}
-                className={`mb-7 pr-4 md:pr-11 flex items-center justify-center md:justify-start cursor-pointer border-primary ${
-                  activeTab === tabs[1] ? 'border-r-2' : ''
-                }`}
-              >
-                <IconPassword color="#B1B1B1" />
-                <span className="ml-5 hidden md:block">Password</span>
-              </li>
-              <li
-                onClick={() => setActiveTab(tabs[2])}
-                className={`mb-7 pr-4 md:pr-11 flex items-center justify-center md:justify-start cursor-pointer border-primary ${
-                  activeTab === tabs[2] ? 'border-r-2' : ''
-                }`}
-              >
-                <IconWishlistFill color="#B1B1B1" />
-                <span className="ml-5 hidden md:block">Wishlist</span>
-              </li>
-              <li
-                className={`mb-7 pr-4 md:pr-11 flex items-center justify-center md:justify-start cursor-not-allowed border-primary ${
-                  activeTab === tabs[3] ? 'border-r-2' : ''
-                }`}
-              >
-                <IconDiscount color="#B1B1B1" />
-                <div className="flex-col items-start ml-5 hidden md:block">
-                  <span className="">Discounts</span>
-                  <p className="p-2 rounded-md bg-disabled text-[#F2F2F2] text-xs max-w-max">
-                    Coming soon
-                  </p>
-                </div>
-              </li>
-              <li
-                onClick={() => setActiveTab(tabs[4])}
-                className={`mb-7 pr-4 md:pr-11 flex items-center justify-center md:justify-start cursor-pointer border-primary ${
-                  activeTab === tabs[4] ? 'border-r-2' : ''
-                }`}
-              >
-                <IconNotification color="#B1B1B1" />
-                <span className="ml-5 hidden md:block">Notifications</span>
-              </li>
+      <div className="my-64 px-6 md:px-32 xl:px-60 2xl:px-[370px]">
+        <div className="flex space-x-[30px]">
+          <div className="w-1/4 min-w-[140px] lg:min-w-[273px]">
+            <ul className="-mr-px border border-black-10 divide-y divide-black-10">
+              {tabs.map((tab) => (
+                <li
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`p-4 flex items-center cursor-pointer ${
+                    activeTab === tab && 'bg-blue-100 text-white'
+                  }`}
+                >
+                  <span className="block capitalize">{tab}</span>
+                </li>
+              ))}
             </ul>
           </div>
-          <div className="mx-10 lg:ml-20 lg:mr-20 xl:mr-64 my-28 col-span-9 md:col-span-8">
-            {renderProfile()}
+          <div className="mb-28 w-3/4 border border-black-10 p-9">{renderProfile()}</div>
+        </div>
+        <div
+          className={`${
+            activeTab === tabs[0] ? 'grid' : 'hidden'
+          } grid-cols-1 xl:grid-cols-2 w-full gap-16 mt-[100px]`}
+        >
+          <div className="border border-black-10 p-9">
+            <p>Account Details:</p>
+            <div className="flex items-center justify-between">
+              <p>First name:</p>
+              <p>{currentProfile.firstName}</p>
+            </div>
+            <div className="flex items-center justify-between">
+              <p>Last name:</p>
+              <p>{currentProfile.lastName}</p>
+            </div>
+            <div className="flex items-center justify-between">
+              <p>Display name:</p>
+              <p>{currentProfile.username}</p>
+            </div>
+            <div className="flex items-center justify-between">
+              <p>Email:</p>
+              <p>{currentProfile.email}</p>
+            </div>
+          </div>
+          <div className="border border-black-10 p-9">
+            <p>Cart:</p>
           </div>
         </div>
+        <div
+          className={`${
+            activeTab === tabs[0] ? 'grid' : 'hidden'
+          } grid-cols-1 xl:grid-cols-2 w-full gap-16 mt-[100px]`}
+        >
+          <div className="border border-black-10 p-9">
+            <p>Payment Method:</p>
+          </div>
+          <div className="border border-black-10 p-9">
+            <p>Wish list</p>
+          </div>
+        </div>
+      </div>
+      <div className="py-16 px-6 md:px-32 xl:px-60 2xl:px-[370px] border-t border-black-10">
+        <Support />
       </div>
     </Layout>
   );
