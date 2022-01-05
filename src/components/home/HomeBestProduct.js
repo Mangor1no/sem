@@ -25,7 +25,7 @@ const HomeBestProduct = () => {
             perspiciatis unde omnis iste natus error.
           </p>
           <Link href="/shop">
-            <button type="button" className="btn-primary font-neue px-11 py-3 mt-11">
+            <button type="button" className="btn-primary btn-big font-neue mt-11">
               SHOP NOW
             </button>
           </Link>

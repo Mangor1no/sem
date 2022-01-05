@@ -55,7 +55,7 @@ const ProductDetail = () => {
       <div className="h-[600px] min-h-[600px] w-full relative">
         {/* <img src={banner} alt="banner" className="h-full w-full object-cover" /> */}
         <div className="absolute inset-0 w-full h-full bg-yellow-100 flex items-center px-6 md:px-32 xl:px-60 2xl:px-[370px]">
-          <div className="z-10">
+          <div className="z-10 mt-24">
             <p className="text-2xl text-black-100 font-bold capitalize">Products</p>
             <p className="uppercase text-base font-neue">
               home // <span className="text-blue-100">Product</span>

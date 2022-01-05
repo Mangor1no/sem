@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Slide, toast } from 'react-toastify';
-import { validateEmail } from 'utils/helpers';
+import { delay, validateEmail } from 'utils/helpers';
 
 const Register = () => {
   const router = useRouter();
@@ -34,7 +34,7 @@ const Register = () => {
     };
     const register = await dispatch(signUp(finalData));
     if (register) {
-      return toast('Sign up successfully', {
+      toast('Sign up successfully', {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,
@@ -44,6 +44,7 @@ const Register = () => {
         progress: undefined,
         transition: Slide,
       });
+      return delay(1500).then(() => router.push('/auth/login'));
     }
     return toast.error('Username or email has existed, please try again', {
       position: 'top-right',
@@ -59,9 +60,9 @@ const Register = () => {
 
   return (
     <Layout>
-      <div className="h-[560px] min-h-[560px] w-full relative">
+      <div className="h-[480px] min-h-[480px] w-full relative">
         <div className="absolute inset-0 w-full h-full bg-yellow-100 flex items-center px-6 md:px-32 xl:px-60 2xl:px-[370px]">
-          <div className="z-10">
+          <div className="z-10 mt-24">
             <p className="text-2xl text-black-100 font-bold capitalize">Register</p>
             <p className="uppercase text-base font-neue">
               home // <span className="text-blue-100">Register</span>

@@ -14,7 +14,7 @@ const HomeBestDeal = () => {
           ut labore etlop.
         </p>
         <Link href="/shop">
-          <button type="button" className="btn-primary font-neue px-11 py-3">
+          <button type="button" className="btn-primary btn-big font-neue">
             SHOP NOW
           </button>
         </Link>

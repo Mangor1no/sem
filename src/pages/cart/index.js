@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable max-lines */
+import { Dialog, Transition } from '@headlessui/react';
 import Layout from 'components/Layout';
 import { IconClose, IconInformation } from 'constants/Icons';
 import { addToCart, clearUserCart, removeFromCart } from 'data/actions/cart';
@@ -9,8 +10,9 @@ import { categories, clothes, comestic, food, medicine, toy } from 'data/constan
 import { cartItemSelector } from 'data/selectors/cartSelector';
 import { currentProfileSelector, isAuthSelector } from 'data/selectors/userSelector';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Slide, toast } from 'react-toastify';
 
 const bankList = [
   {
@@ -45,19 +47,25 @@ const Cart = () => {
   const [cart, setCart] = useState([]);
   const [step, setStep] = useState(0);
   const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState(deliveryMethod[0]);
-  const [selectedBank, setSelectedBank] = useState(bankList[0].name);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [city, setCity] = useState('');
   const [zipCode, setZipCode] = useState('');
-  const [address, setAddress] = useState('');
-  const [cardName, setCardName] = useState('');
-  const [cardNumber, setCardNumber] = useState('');
-  const [cardExpire, setCardExpire] = useState('');
-  const [cardCVV, setCardCVV] = useState('');
   const [errors, setErrors] = useState(null);
+  const [isDiscount, setIsDiscount] = useState(false);
+  const [showModalCoupon, setShowModalCoupon] = useState(false);
+  const [coupon, setCoupon] = useState('');
+  const [couponValid, setCouponValid] = useState(false);
+
+  function closeModal() {
+    setShowModalCoupon(false);
+  }
+
+  function openModal() {
+    setShowModalCoupon(true);
+  }
 
   const isAuth = useSelector(isAuthSelector);
   const currentProfile = useSelector(currentProfileSelector);
@@ -186,6 +194,35 @@ const Cart = () => {
     const result = await dispatch(addToCart(finalData));
   };
 
+  const handleCoupon = () => {
+    if (coupon === 'ahihi') {
+      setIsDiscount(true);
+      setCouponValid(true);
+      closeModal();
+      return toast('Coupon has been redeemed successfully!', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        transition: Slide,
+      });
+    }
+    setCouponValid(false);
+    return toast.error('Coupon is not valid', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      transition: Slide,
+    });
+  };
+
   const renderByStep = () => {
     switch (step) {
       case 0:
@@ -240,11 +277,68 @@ const Cart = () => {
       case 1:
         return (
           <>
+            <Transition appear show={showModalCoupon} as={Fragment}>
+              <Dialog as="div" className="fixed inset-0 z-30 overflow-y-auto" onClose={closeModal}>
+                <div className="min-h-screen px-4 text-center">
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                  >
+                    <Dialog.Overlay className="fixed inset-0 bg-[#00000065]" />
+                  </Transition.Child>
+
+                  {/* This element is to trick the browser into centering the modal contents. */}
+                  <span className="inline-block h-screen align-middle" aria-hidden="true">
+                    &#8203;
+                  </span>
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0 scale-95"
+                    enterTo="opacity-100 scale-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100 scale-100"
+                    leaveTo="opacity-0 scale-95"
+                  >
+                    <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl">
+                      <Dialog.Title as="h3" className="text-lg font-bold">
+                        Enter your coupon
+                      </Dialog.Title>
+                      <div className="mt-2">
+                        <input
+                          type="text"
+                          className="border border-[#B1B1B1] text-sm px-3 py-2 w-full focus:outline-none disabled:bg-disabled"
+                          value={coupon}
+                          onChange={(e) => setCoupon(e.target.value)}
+                        />
+                      </div>
+
+                      <div className="mt-4">
+                        <button
+                          type="button"
+                          className="btn-secondary btn-big"
+                          onClick={handleCoupon}
+                        >
+                          Redeem coupon
+                        </button>
+                      </div>
+                    </div>
+                  </Transition.Child>
+                </div>
+              </Dialog>
+            </Transition>
             <div className="bg-[#ECECEF] py-4 px-5 flex items-center space-x-3 font-neue text-sm mb-[77px]">
               <span>
                 <IconInformation />
               </span>
-              <span>Have a Coupon? Click here to enter your code</span>
+              <button type="button" onClick={() => setShowModalCoupon(true)}>
+                Have a Coupon? Click here to enter your code
+              </button>
             </div>
             <div className="flex flex-col md:flex-row justify-between">
               <div className="w-full md:w-1/2 mr-8 h-full">
@@ -404,17 +498,19 @@ const Cart = () => {
                   <p>Subtotal</p>
                   <p>${renderSubTotal()}</p>
                 </div>
-                <div className="flex items-center justify-between pb-[10px] border-b border-[#C9C9C9] pt-3">
+                <div className="flex justify-between pb-[10px] border-b border-[#C9C9C9] pt-3">
                   <p>Shipping</p>
-                  <p>Flat rate: $2</p>
+                  <div className="text-right">
+                    <p>Flat rate: $2</p>
+                    {isDiscount && couponValid && <p>Coupon: -$2</p>}
+                  </div>
                 </div>
                 <div className="flex items-center justify-between pb-[10px] border-b border-[#C9C9C9] pt-3">
                   <p>Total</p>
-                  <p>${+renderSubTotal() + 2}</p>
+                  <p>${+renderSubTotal() + 2 - (isDiscount && couponValid ? 2 : 0)}</p>
                 </div>
                 <div>
-                  <p className="uppercase text-bas mb-5">Payment method</p>
-                  <div className="w-full ">
+                  <div className="w-full mt-8">
                     <ul className="">
                       {deliveryMethod.map((method, index) => (
                         <>
@@ -481,7 +577,7 @@ const Cart = () => {
     <Layout>
       <div className="h-[600px] min-h-[600px] w-full relative">
         <div className="absolute inset-0 w-full h-full bg-yellow-100 flex items-center px-6 md:px-32 xl:px-60 2xl:px-[370px]">
-          <div className="z-10">
+          <div className="z-10 mt-24">
             <p className="text-2xl text-black-100 font-bold capitalize">Cart</p>
             <p className="uppercase text-base font-neue">
               home // <span className="text-blue-100">Cart</span>
@@ -501,7 +597,7 @@ const Cart = () => {
             <Link href="/shop">
               <button
                 type="button"
-                className="btn-primary text-[#F2F2F2] uppercase w-1/2 py-[10px] rounded-md"
+                className="btn-primary text-[#F2F2F2] uppercase w-1/2 py-[10px]"
               >
                 <span>Continue shopping</span>
               </button>

@@ -29,7 +29,7 @@ const BlogCard = ({ banner, createdAt, shortDesc, title, category, blogId }) => 
             <p className="line-clamp-2 text-black text-lg font-bold group-hover:text-blue-50">
               {title}
             </p>
-            <button type="button" className="btn-primary font-neue font-medium px-6 py-[6px] mt-11">
+            <button type="button" className="btn-primary btn-small font-neue font-medium mt-11">
               Read more
             </button>
           </div>

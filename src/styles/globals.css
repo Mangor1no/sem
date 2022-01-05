@@ -80,11 +80,19 @@ a {
 }
 
 .btn-primary {
-  @apply bg-yellow-100 text-blue-100 hover:bg-yellow-50 active:bg-blue-100 active:text-yellow-100 disabled:bg-disabled disabled:text-white disabled:cursor-not-allowed uppercase font-bold;
+  @apply transition duration-300 bg-yellow-100 text-blue-100 hover:bg-yellow-50 active:bg-blue-100 active:text-yellow-100 disabled:bg-disabled disabled:text-white disabled:cursor-not-allowed uppercase font-bold;
 }
 
 .btn-secondary {
-  @apply bg-blue-100 text-white hover:bg-blue-50 hover:border-blue-50 active:bg-yellow-100 active:text-blue-100 disabled:bg-disabled disabled:text-white disabled:cursor-not-allowed uppercase font-bold;
+  @apply transition duration-300 bg-blue-100 text-white hover:bg-blue-50 hover:border-blue-50 active:bg-yellow-100 active:text-blue-100 disabled:bg-disabled disabled:text-white disabled:cursor-not-allowed uppercase font-bold;
+}
+
+.btn-big {
+  @apply w-[180px] h-[50px] min-w-[180px] text-center;
+}
+
+.btn-small {
+  @apply w-[140px] h-[40px] min-w-[140px] text-center;
 }
 
 .up-arrow {

@@ -75,8 +75,9 @@ const Header = () => {
             <div className="flex items-center">
               <input
                 type="text"
-                className="border-2 border-blue-100 w-full focus:outline-none px-8 py-5 text-blue-100 pr-[70px]"
+                className="border-2 border-blue-100 w-full focus:outline-none px-8 py-5 text-blue-100 pr-[70px] placeholder-blue-100"
                 onChange={(e) => handleFilter(e.target.value)}
+                placeholder="Search Entire Store..."
               />
               <button type="button" className="bg-blue-100 text-white p-5 border-2 border-blue-100">
                 <IconSearch />
@@ -108,24 +109,30 @@ const Header = () => {
       </Transition>
       <div
         style={{ backgroundColor: className }}
-        className="fixed top-0 flex items-center justify-between lg:justify-center sm:px-20 py-[23px] text-white w-full z-20 bg-transparent"
+        className="fixed top-0 flex items-center justify-between lg:justify-center px-4 sm:px-20 pt-[25px] pb-[16px] text-white w-full z-20 bg-transparent"
       >
         <img src="/images/logo.png" alt="logo" className="w-[70px] max-w-[70px]" />
         <div className="hidden lg:flex items-center justify-between 2xl:ml-60">
           <div className="flex items-center justify-between space-x-[45px]">
             <div className="flex items-center justify-between group relative" />
             <Link href="/">
-              <a className="font-bold min-w-max">HOME</a>
+              <a className="font-bold min-w-max hover:text-yellow-100 transition duration-150">
+                HOME
+              </a>
             </Link>
             <Link href="/about">
-              <a className="font-bold min-w-max">ABOUT US</a>
+              <a className="font-bold min-w-max hover:text-yellow-100 transition duration-150">
+                ABOUT US
+              </a>
             </Link>
             <Link href="/service">
-              <a className="font-bold min-w-max">SERVICE</a>
+              <a className="font-bold min-w-max hover:text-yellow-100 transition duration-150">
+                SERVICE
+              </a>
             </Link>
             <Menu as="div" className="relative inline-block text-left">
               <div>
-                <Menu.Button className="font-bold min-w-max inline-flex justify-center w-full text-white rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                <Menu.Button className="font-bold min-w-max hover:text-yellow-100 transition duration-150 inline-flex justify-center w-full text-white rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                   PRODUCT
                 </Menu.Button>
               </div>
@@ -161,7 +168,9 @@ const Header = () => {
               </Transition>
             </Menu>
             <Link href="/blog">
-              <a className="font-bold min-w-max">BLOG</a>
+              <a className="font-bold min-w-max hover:text-yellow-100 transition duration-150">
+                BLOG
+              </a>
             </Link>
           </div>
           <div className="flex items-center justify-between ml-16 2xl:ml-[227px] space-x-5">
@@ -171,21 +180,33 @@ const Header = () => {
               </button>
             </div>
             <div className="relative min-w-5 h-5">
-              <Link href="/profile">
+              {isAuth ? (
+                <Link href="/profile">
+                  <a className="font-bold min-w-max">
+                    <IconUser />
+                  </a>
+                </Link>
+              ) : (
+                <Link href="/auth/login">
+                  <a className="font-bold min-w-max">
+                    <IconUser />
+                  </a>
+                </Link>
+              )}
+            </div>
+            <div className="relative min-w-5 h-5">
+              <Link href="/profile/wishlist">
                 <a className="font-bold min-w-max">
-                  <IconUser />
+                  <IconWishlist />
                 </a>
               </Link>
             </div>
             <div className="relative min-w-5 h-5">
-              <button type="button" onClick={() => {}}>
-                <IconWishlist />
-              </button>
-            </div>
-            <div className="relative min-w-5 h-5">
-              <button type="button" onClick={() => {}}>
-                <IconCart />
-              </button>
+              <Link href="/profile/wishlist">
+                <a className="font-bold min-w-max">
+                  <IconCart />
+                </a>
+              </Link>
             </div>
           </div>
         </div>

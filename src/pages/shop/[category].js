@@ -166,9 +166,9 @@ const Shop = () => {
 
   return (
     <Layout>
-      <div className="h-[560px] min-h-[560px] w-full relative mb-20">
+      <div className="h-[480px] min-h-[480px] w-full relative mb-20">
         <div className="absolute inset-0 w-full h-full bg-yellow-100 flex items-center px-6 md:px-32 xl:px-60 2xl:px-[370px]">
-          <div className="z-10">
+          <div className="z-10 mt-24">
             <p className="text-2xl text-black-100 font-bold capitalize">Products</p>
             <p className="uppercase text-base font-neue">
               home // <span className="text-blue-100">Product</span>

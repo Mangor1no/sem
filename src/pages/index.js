@@ -27,7 +27,7 @@ export default function Home() {
             <Link href="/shop/food">
               <button
                 type="button"
-                className="btn-primary text-bold px-14 py-4 uppercase transition duration-150"
+                className="btn-primary btn-big text-bold uppercase transition duration-150"
               >
                 Shop now
               </button>
@@ -40,13 +40,13 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] w-full py-16 md:pt-[50px] md:pb-[86px] bg-black-2">
+      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[370px] w-full py-16 md:pt-[50px] md:pb-[86px] bg-black-2">
         <HomeCategory />
       </div>
-      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] w-full my-16 md:mb-[114px] md:mt-[146px]">
+      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[370px] w-full my-16 md:mb-[114px] md:mt-[146px]">
         <HomeSale />
       </div>
-      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] w-full mb-16 md:mb-[160px]">
+      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[370px] w-full mb-16 md:mb-[160px]">
         <HomeBestSeller />
       </div>
       <div className="max-h-[600px] md:min-h-[500px] relative">
@@ -55,10 +55,10 @@ export default function Home() {
       <div className="px-5 sm:px-16 w-full mb-16 md:mb-20 bg-black-2">
         <HomeFlashDeal />
       </div>
-      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] w-full mb-16 md:mb-[200px]">
+      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[370px] w-full mb-16 md:mb-[200px]">
         <HomeBestProduct />
       </div>
-      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] w-full mb-16 md:mb-[160px]">
+      <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[370px] w-full mb-16 md:mb-[160px]">
         <HomeBlog />
       </div>
     </Layout>

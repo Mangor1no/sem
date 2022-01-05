@@ -25,7 +25,7 @@ const Filter = ({ handleFilter, blogs }) => {
   };
 
   useEffect(() => {
-    handleFilter({ selectedTag, productName: search });
+    handleFilter({ selectedTag, blogName: search });
   }, [selectedTag, search]);
 
   const renderFilterTag = useCallback(() => {

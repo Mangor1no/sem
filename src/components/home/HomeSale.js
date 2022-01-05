@@ -17,7 +17,7 @@ const HomeSale = () => {
             DOG FOOD
           </p>
           <Link href="/shop">
-            <button type="button" className="btn-secondary px-[23px] py-[6px] w-max font-neue">
+            <button type="button" className="btn-secondary btn-small w-max font-neue">
               shop now
             </button>
           </Link>
@@ -36,7 +36,7 @@ const HomeSale = () => {
             CAT FOOD
           </p>
           <Link href="/shop">
-            <button type="button" className="btn-secondary px-[23px] py-[6px] w-max font-neue">
+            <button type="button" className="btn-secondary btn-small w-max font-neue">
               shop now
             </button>
           </Link>

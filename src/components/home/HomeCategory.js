@@ -16,7 +16,7 @@ const HomeCategory = () => {
               <img
                 src={category.image}
                 alt={category.name}
-                className="rounded-full w-[140px] h-[140px] min-w-[140px] md:w-[200px] md:h-[200px] md:min-w-[200px] group-hover:scale-110 transition transition-all duration-200"
+                className="rounded-full w-[140px] h-[140px] min-w-[140px] md:w-[200px] md:h-[200px] md:min-w-[200px] group-hover:scale-110 transition-all duration-200"
               />
               <p className="text-lg">{category.name}</p>
             </div>

@@ -16,12 +16,13 @@ const Category = ({ handleSelectCategory, data }) => {
       <div className="flex flex-col divide-y divide-black-10">
         {categories.map((category) => {
           return (
-            <p
+            <button
+              type="button"
               className="text-black-50 inline-flex justify-between items-center py-4"
               key={category.category}
             >
               <span>{category.name}</span> <span>({countItems(category.category)})</span>
-            </p>
+            </button>
           );
         })}
       </div>

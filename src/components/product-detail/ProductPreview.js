@@ -30,6 +30,7 @@ const ProductPreview = ({ show, product, handleClose }) => {
   const [addable, setAddable] = useState(true);
   const [selectedVariation, setSelectedVariation] = useState('');
 
+  const currentProfile = useSelector(currentProfileSelector);
   const wishlist = useSelector(wishlistSelector);
 
   const dispatch = useDispatch();
@@ -72,7 +73,7 @@ const ProductPreview = ({ show, product, handleClose }) => {
       // guestId = 0
       finalData.userId = 0;
     } else {
-      finalData.userId = currentProfileSelector.id;
+      finalData.userId = currentProfile.id;
     }
     const result = await dispatch(addToCart(finalData));
     if (result) {

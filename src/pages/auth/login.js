@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Slide, toast } from 'react-toastify';
 import { delay } from 'utils/helpers';
+import Link from 'next/link';
 
 const Login = () => {
   const router = useRouter();
@@ -58,9 +59,9 @@ const Login = () => {
 
   return (
     <Layout>
-      <div className="h-[560px] min-h-[560px] w-full relative">
+      <div className="h-[480px] min-h-[480px] w-full relative">
         <div className="absolute inset-0 w-full h-full bg-yellow-100 flex items-center px-6 md:px-32 xl:px-60 2xl:px-[370px]">
-          <div className="z-10">
+          <div className="z-10 mt-24">
             <p className="text-2xl text-black-100 font-bold capitalize">Login</p>
             <p className="uppercase text-base font-neue">
               home // <span className="text-blue-100">Login</span>
@@ -115,6 +116,19 @@ const Login = () => {
             >
               Login
             </button>
+
+            <div className="w-full flex items-center justify-center mt-9 space-x-2 text-black-50">
+              <div className="flex flex-1 items-center space-x-2">
+                <input type="checkbox" name="remember" id="remember" />
+                <label htmlFor="remember">Keep me sign in</label>
+              </div>
+              <button type="button" className="w-max">
+                Lost your password?
+              </button>
+            </div>
+            <Link href="register">
+              <a className="ml-auto mt-5 text-black-50">Create account</a>
+            </Link>
           </div>
         </div>
       </div>

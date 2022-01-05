@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+import { Transition } from '@headlessui/react';
 import ProductPreview from 'components/product-detail/ProductPreview';
 import { IconCart, IconQuickView, IconWishlist, IconWishlistFill } from 'constants/Icons';
 import { addToCart } from 'data/actions/cart';
@@ -14,6 +15,7 @@ import { Slide, toast } from 'react-toastify';
 const Product = ({ product }) => {
   const [addable, setAddable] = useState(true);
   const [showPreview, setShowPreview] = useState(false);
+  const [showButtons, setShowButtons] = useState(false);
 
   const isAuth = useSelector(isAuthSelector);
   const wishlist = useSelector(wishlistSelector);
@@ -94,11 +96,15 @@ const Product = ({ product }) => {
   return (
     <>
       <ProductPreview product={product} show={showPreview} handleClose={handleClose} />
-      <div className="w-3/4 mx-auto md:w-full h-full group">
+      <div
+        className="w-3/4 mx-auto md:w-full h-full group"
+        onMouseOver={() => setShowButtons(true)}
+        onMouseLeave={() => setShowButtons(false)}
+      >
         <div className="w-full flex items-center justify-center relative overflow-hidden">
-          {isAuth && (
-            <div className="absolute top-4 right-4 z-10 flex flex-col space-y-4">
-              {addable ? (
+          <div className="absolute top-4 right-4 z-10 flex flex-col space-y-4">
+            {isAuth &&
+              (addable ? (
                 <button
                   type="button"
                   onClick={handleWishlist}
@@ -114,23 +120,44 @@ const Product = ({ product }) => {
                 >
                   <IconWishlistFill size={24} color="#45A7DE" />
                 </button>
-              )}
+              ))}
+            <Transition
+              as="div"
+              enter="transition ease-out duration-300"
+              enterFrom="opacity-0 -translate-x-4"
+              enterTo="opacity-100 translate-x-0"
+              leave="transition ease-in duration-300"
+              leaveFrom="opacity-100 translate-x-0"
+              leaveTo="opacity-0 -translate-x-4"
+              show={showButtons}
+            >
               <button
                 type="button"
                 onClick={handleAddToCart}
-                className="p-2 bg-white text-blue-100 rounded-full hidden group-hover:block"
+                className="p-2 bg-white text-blue-100 rounded-full"
               >
                 <IconCart />
               </button>
+            </Transition>
+            <Transition
+              as="div"
+              enter="transition ease-out duration-500"
+              enterFrom="opacity-0 -translate-x-8"
+              enterTo="opacity-100 translate-x-0"
+              leave="transition ease-in duration-150"
+              leaveFrom="opacity-100 translate-x-0"
+              leaveTo="opacity-0 -translate-x-6"
+              show={showButtons}
+            >
               <button
                 type="button"
                 onClick={handlePreview}
-                className="p-2 bg-white text-blue-100 rounded-full hidden group-hover:block"
+                className="p-2 bg-white text-blue-100 rounded-full dura"
               >
                 <IconQuickView />
               </button>
-            </div>
-          )}
+            </Transition>
+          </div>
           <img
             src={product?.image?.[0]}
             alt={product?.name}
