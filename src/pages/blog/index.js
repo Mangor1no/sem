@@ -91,7 +91,10 @@ const Blog = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-3 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-x-[31px] gap-y-[42px]">
+          <div
+            className="col-span-3 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-x-[31px] gap-y-[42px]"
+            style={{ height: 'fit-content' }}
+          >
             {filteredBlog.map((blog) => (
               <Fragment key={blog.id}>
                 <BlogCard
