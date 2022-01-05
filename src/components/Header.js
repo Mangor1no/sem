@@ -195,14 +195,22 @@ const Header = () => {
               )}
             </div>
             <div className="relative min-w-5 h-5">
+              {isAuth ? (
               <Link href="/profile/wishlist">
                 <a className="font-bold min-w-max">
                   <IconWishlist />
                 </a>
               </Link>
+              ) : (
+                <Link href="/auth/login">
+                  <a className="font-bold min-w-max">
+                    <IconWishlist />
+                  </a>
+                </Link>
+              )}
             </div>
             <div className="relative min-w-5 h-5">
-              <Link href="/profile/wishlist">
+              <Link href="/cart">
                 <a className="font-bold min-w-max">
                   <IconCart />
                 </a>
