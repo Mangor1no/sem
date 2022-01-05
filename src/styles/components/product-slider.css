@@ -1,5 +1,11 @@
 .carousel-root {
   width: 100%;
+  height: inherit;
+  min-height: inherit;
+}
+.carousel.carousel-slider {
+  height: inherit;
+  min-height: inherit;
 }
 .thumbs-wrapper .axis-vertical {
   margin: 10px 0 0 0;
