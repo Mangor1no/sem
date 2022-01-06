@@ -10,7 +10,7 @@ const carouselSetting = {
   showThumbs: false,
   showStatus: false,
   interval: 6000,
-  showIndicators: false,
+  showIndicators: true,
 };
 
 export const SlideBanner = ({ banners }) => (

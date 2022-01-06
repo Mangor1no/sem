@@ -174,12 +174,12 @@ const Header = () => {
             </Link>
           </div>
           <div className="flex items-center justify-between ml-16 2xl:ml-[227px] space-x-5">
-            <div className="relative min-w-5 h-5">
+            <div className="relative min-w-5 h-5 hover:text-yellow-100">
               <button type="button" onClick={() => setToggleSearch(!toggleSearch)}>
                 <IconSearch />
               </button>
             </div>
-            <div className="relative min-w-5 h-5">
+            <div className="relative min-w-5 h-5 hover:text-yellow-100">
               {isAuth ? (
                 <Link href="/profile">
                   <a className="font-bold min-w-max">
@@ -194,13 +194,13 @@ const Header = () => {
                 </Link>
               )}
             </div>
-            <div className="relative min-w-5 h-5">
+            <div className="relative min-w-5 h-5 hover:text-yellow-100">
               {isAuth ? (
-              <Link href="/profile/wishlist">
-                <a className="font-bold min-w-max">
-                  <IconWishlist />
-                </a>
-              </Link>
+                <Link href="/profile/wishlist">
+                  <a className="font-bold min-w-max">
+                    <IconWishlist />
+                  </a>
+                </Link>
               ) : (
                 <Link href="/auth/login">
                   <a className="font-bold min-w-max">
@@ -209,7 +209,7 @@ const Header = () => {
                 </Link>
               )}
             </div>
-            <div className="relative min-w-5 h-5">
+            <div className="relative min-w-5 h-5 hover:text-yellow-100">
               <Link href="/cart">
                 <a className="font-bold min-w-max">
                   <IconCart />

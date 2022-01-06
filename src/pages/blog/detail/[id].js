@@ -41,7 +41,7 @@ const BlogDetail = () => {
             </p>
             <div
               dangerouslySetInnerHTML={{ __html: blog?.content }}
-              className="py-16 px-6 lg:px-32 xl:px-60 3xl:px-[300px] font-neue"
+              className="py-16 px-6 lg:px-14 xl:px-28 3xl:px-[160px] font-neue"
             />
           </div>
           <Comment />
