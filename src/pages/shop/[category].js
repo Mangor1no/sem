@@ -205,7 +205,6 @@ const Shop = () => {
                 <p className="text-base font-bold mb-[5px]">-25% Off</p>
                 <p className="text-lg font-bold">Pet Food, Medicine</p>
                 <p className="text-lg font-bold mb-7">& Shop With Us</p>
-                <p className="text-base font-neue underline">SHOP NOW</p>
               </div>
               <img
                 src="/images/products/promotion.png"
