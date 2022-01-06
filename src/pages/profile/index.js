@@ -449,7 +449,7 @@ const Account = () => {
           <div className="border border-black-10 p-9 min-h-[330px]">
             <div className="flex items-center justify-between mb-9">
               <p className="text-lg">Wishlist</p>
-              <Link href="/cart">
+              <Link href="/profile/wishlist">
                 <a>View all ({wishlist?.length})</a>
               </Link>
             </div>
