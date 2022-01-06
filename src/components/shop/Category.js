@@ -1,7 +1,6 @@
-import { Disclosure, Transition } from '@headlessui/react';
 import { categories } from 'data/constants';
 import Link from 'next/link';
-import React, { Fragment } from 'react';
+import React from 'react';
 
 const Category = ({ handleSelectCategory, food, medicine, toy, clothes, comestic }) => {
   const countItems = (category) => {
@@ -32,7 +31,7 @@ const Category = ({ handleSelectCategory, food, medicine, toy, clothes, comestic
       <div className="flex flex-col space-y-2">
         {categories.map((category) => {
           return (
-            <Link key={category.id} href={category.category}>
+            <Link key={category.id} href={category.category} shallow>
               <a className="text-black-50">
                 {category.name} ({countItems(category.category)})
               </a>
