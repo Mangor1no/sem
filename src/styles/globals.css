@@ -135,3 +135,7 @@ td {
   border: 1px solid #9d9d9d;
   text-align: center;
 }
+
+.container {
+  @apply 2xl:max-w-6xl 2xl:!px-0 3xl:!px-0 mx-auto w-full;
+}

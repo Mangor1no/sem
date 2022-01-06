@@ -249,10 +249,10 @@ const ProductPreview = ({ show, product, handleClose }) => {
                         <button
                           type="button"
                           onClick={handleAddToCart}
-                          className={`py-[11px] px-9 border border-blue-100 font-neue uppercase min-w-max ${
+                          className={`py-[11px] px-9 border font-neue uppercase min-w-max ${
                             allowAddToCart
-                              ? 'btn-secondary transition duration-150 ease-in-out'
-                              : 'cursor-not-allowed bg-[#F2F2F2]'
+                              ? 'btn-secondary border-blue-100 transition duration-150 ease-in-out'
+                              : 'cursor-not-allowed border-[#F2F2F2] bg-[#F2F2F2]'
                           }`}
                           ref={cancelButtonRef}
                         >

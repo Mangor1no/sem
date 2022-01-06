@@ -64,7 +64,7 @@ const Blog = () => {
         </div>
       </div>
       <div className="mt-[80px]">
-        <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] w-full mt-10 mb-16 md:mt-16 md:mb-[160px] grid grid-cols-3 gap-x-9">
+        <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[370px] w-full mt-10 mb-16 md:mt-16 md:mb-[160px] grid grid-cols-3 gap-x-9">
           <div className="col-span-1">
             <div className="hidden md:flex flex-col max-w-[262px] w-full gap-y-[42px] mr-[30px]">
               <Category handleSelectCategory={handleSelectCategory} data={blogs} />

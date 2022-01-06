@@ -25,8 +25,8 @@ const BlogDetail = () => {
   return (
     <Layout>
       <div className="mt-[64px]">
-        <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[255px] w-full my-16">
-          <div className="col-span-full sm:col-span-2 mb-36">
+        <div className="px-5 sm:px-16 xl:px-[150px] 2xl:px-[370px] w-full my-16">
+          <div className="col-span-full sm:col-span-2 mb-36 border-b border-black-10 pb-10">
             <img
               src={blog?.banner}
               alt="banner"

@@ -21,7 +21,7 @@ import { Slide, toast } from 'react-toastify';
 import { validateEmail } from 'utils/helpers';
 
 const Account = () => {
-  const tabs = ['overview', 'orders', 'payment method', 'address', 'Account Details'];
+  const tabs = ['overview', 'orders', 'address', 'Account Details'];
 
   const router = useRouter();
 
@@ -205,8 +205,6 @@ const Account = () => {
           </div>
         );
       case tabs[2]:
-        return <></>;
-      case tabs[3]:
         return (
           <div className="text-base">
             <p className="text-lg mb-4 border-b border-dashed border-black-10 pb-[10px]">
@@ -222,7 +220,7 @@ const Account = () => {
             </button>
           </div>
         );
-      case tabs[4]:
+      case tabs[3]:
         return (
           <>
             <p className="text-lg mb-4 border-b border-dashed border-black-10 pb-[10px]">
@@ -381,7 +379,7 @@ const Account = () => {
             activeTab === tabs[0] ? 'grid' : 'hidden'
           } grid-cols-1 xl:grid-cols-2 w-full gap-16 mt-[100px]`}
         >
-          <div className="border border-black-10 p-9">
+          <div className="border border-black-10 p-9 min-h-[330px]">
             <p className="text-lg mb-5">Account Details:</p>
             <div className="flex flex-col space-y-4">
               <div className="grid grid-cols-2 gap-2">
@@ -402,7 +400,7 @@ const Account = () => {
               </div>
             </div>
           </div>
-          <div className="border border-black-10 p-9">
+          <div className="border border-black-10 p-9 min-h-[330px]">
             <div className="flex items-center justify-between mb-9">
               <p className="text-lg">Cart:</p>
               <Link href="/cart">
@@ -421,7 +419,7 @@ const Account = () => {
                     <div>
                       <p>{productName}</p>
                       <p>
-                        {item.quantity} x {productPrice}
+                        {item.quantity} x ${productPrice}
                       </p>
                     </div>
                   </div>
@@ -435,10 +433,20 @@ const Account = () => {
             activeTab === tabs[0] ? 'grid' : 'hidden'
           } grid-cols-1 xl:grid-cols-2 w-full gap-16 mt-[100px]`}
         >
-          <div className="border border-black-10 p-9">
-            <p className="text-lg mb-9">Payment Method:</p>
+          <div className="border border-black-10 p-9 min-h-[330px]">
+            <div className="flex items-center justify-between mb-9">
+              <p className="text-lg">Address</p>
+              <button type="button" onClick={() => {}}>
+                Edit
+              </button>
+            </div>
+            <p className="font-bold font-neue mt-[26px] mb-[22px]">Alex Tuntuni</p>
+            <p className="mb-[18px]">
+              1355 Market St, Suite 900 <br /> San Francisco, CA 94103
+            </p>
+            <p className="mb-11">Mobile: (123) 456-7890</p>
           </div>
-          <div className="border border-black-10 p-9">
+          <div className="border border-black-10 p-9 min-h-[330px]">
             <div className="flex items-center justify-between mb-9">
               <p className="text-lg">Wishlist</p>
               <Link href="/cart">
@@ -452,7 +460,7 @@ const Account = () => {
                     <img src={item.image[0]} alt={item.name} className="w-16 h-16 min-w-[64px]" />
                     <div>
                       <p>{item.name}</p>
-                      <p>1 x {item.price}</p>
+                      <p>1 x ${item.price}</p>
                     </div>
                   </div>
                 );
